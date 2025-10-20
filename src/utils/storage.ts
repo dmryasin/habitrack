@@ -85,6 +85,25 @@ export const storage = {
     }
   },
 
+  async getNotificationsEnabled(): Promise<boolean> {
+    try {
+      const enabled = await localforage.getItem<boolean>('notificationsEnabled');
+      return enabled || false;
+    } catch (error) {
+      console.error('Error loading notifications setting:', error);
+      return false;
+    }
+  },
+
+  async saveNotificationsEnabled(enabled: boolean): Promise<void> {
+    try {
+      await localforage.setItem('notificationsEnabled', enabled);
+    } catch (error) {
+      console.error('Error saving notifications setting:', error);
+      throw error;
+    }
+  },
+
   async clear(): Promise<void> {
     try {
       await localforage.clear();

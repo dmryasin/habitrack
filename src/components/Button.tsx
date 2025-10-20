@@ -22,7 +22,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={clsx(
         'font-semibold rounded-xl transition-all duration-200 flex items-center justify-center space-x-2',
         {
-          'bg-primary-500 hover:bg-primary-600 active:bg-primary-700 text-white shadow-sm':
+          'bg-[#C85A3E] hover:bg-[#B34F35] active:bg-[#9E442D] text-white shadow-sm hover:shadow-md':
             variant === 'primary' && !disabled,
           'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 active:bg-gray-400 dark:active:bg-gray-500 text-gray-900 dark:text-gray-100':
             variant === 'secondary' && !disabled,

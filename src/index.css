@@ -22,16 +22,17 @@
   }
 
   .card {
-    @apply bg-white rounded-2xl p-5 border border-gray-100/50 transition-shadow duration-200;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    @apply bg-white dark:bg-gray-800 rounded-2xl p-5 border-2 border-gray-200 dark:border-gray-700 transition-all duration-200;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
   .card:hover {
+    @apply border-gray-300 dark:border-gray-600;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all text-gray-900 placeholder-gray-400;
+    @apply w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 bg-white dark:bg-gray-800;
   }
 
   .badge {
@@ -57,4 +58,63 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
+}
+
+/* Custom Toast Styles - Minimal & Elegant */
+.Toastify__toast {
+  @apply rounded-xl bg-white border border-gray-200 text-gray-700;
+  min-height: 56px;
+  padding: 12px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.Toastify__toast--success {
+  @apply border-l-4 border-l-green-400;
+}
+
+.Toastify__toast--error {
+  @apply border-l-4 border-l-red-400;
+}
+
+.Toastify__toast--warning {
+  @apply border-l-4 border-l-amber-400;
+}
+
+.Toastify__toast--info {
+  @apply border-l-4 border-l-blue-400;
+}
+
+html.dark .Toastify__toast {
+  @apply bg-gray-800 border-gray-700 text-gray-200;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+html.dark .Toastify__toast--success {
+  @apply border-l-green-500;
+}
+
+html.dark .Toastify__toast--error {
+  @apply border-l-red-500;
+}
+
+html.dark .Toastify__toast--warning {
+  @apply border-l-amber-500;
+}
+
+html.dark .Toastify__toast--info {
+  @apply border-l-blue-500;
+}
+
+.Toastify__close-button {
+  @apply opacity-40 hover:opacity-80;
+  color: currentColor;
+}
+
+.Toastify__toast-icon {
+  width: 20px;
+  margin-right: 10px;
+  opacity: 0.7;
 }

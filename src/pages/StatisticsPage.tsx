@@ -2,6 +2,7 @@ import React from 'react';
 import { useHabitStore } from '../store/useHabitStore';
 import { HabitModel } from '../models/Habit';
 import { Flame, Target, TrendingUp, Award, BarChart3 } from 'lucide-react';
+import * as Icons from 'lucide-react';
 import { getTranslation } from '../utils/i18n';
 
 export const StatisticsPage: React.FC = () => {
@@ -58,13 +59,15 @@ export const StatisticsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-800 shadow-sm">
+      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-lg mx-auto px-6 py-6">
-          <div className="flex items-center space-x-3">
-            <BarChart3 size={28} className="text-primary-500" />
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{t('statistics')}</h1>
+          <div className="flex items-center space-x-3 mb-2">
+            <div className="w-10 h-10 rounded-xl bg-[#C85A3E]/10 dark:bg-[#C85A3E]/20 flex items-center justify-center">
+              <BarChart3 size={22} className="text-[#C85A3E]" />
+            </div>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{t('statistics')}</h1>
           </div>
-          <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">{language === 'tr' ? 'Genel performans özeti' : language === 'es' ? 'Resumen general de rendimiento' : language === 'fr' ? 'Résumé général des performances' : language === 'de' ? 'Allgemeine Leistungsübersicht' : language === 'it' ? 'Riepilogo generale delle prestazioni' : 'General performance summary'}</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 ml-13">{language === 'tr' ? 'Genel performans özeti' : language === 'es' ? 'Resumen general de rendimiento' : language === 'fr' ? 'Résumé général des performances' : language === 'de' ? 'Allgemeine Leistungsübersicht' : language === 'it' ? 'Riepilogo generale delle prestazioni' : 'General performance summary'}</p>
         </div>
       </div>
 
@@ -72,7 +75,7 @@ export const StatisticsPage: React.FC = () => {
         {/* Overview Stats */}
         <div className="grid grid-cols-2 gap-4">
           {statCards.map((stat, index) => (
-            <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm">
+            <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border-2 border-gray-200 dark:border-gray-700">
               <div className={`w-12 h-12 rounded-xl ${stat.bgColor} flex items-center justify-center mb-3`}>
                 <stat.icon size={24} className={stat.color} />
               </div>
@@ -91,27 +94,32 @@ export const StatisticsPage: React.FC = () => {
               {t('habitDetails')}
             </h2>
             <div className="space-y-3">
-              {allStats.map(({ habit, stats }) => (
-                <div key={habit.id} className="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-3 flex-1 min-w-0">
-                      <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                        style={{ backgroundColor: habit.color + '15' }}
-                      >
+              {allStats.map(({ habit, stats }) => {
+                // Get the icon component (same logic as HabitCard)
+                const IconComponent = (Icons as any)[
+                  habit.icon.split('-').map((word: string) =>
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                  ).join('')
+                ] || Icons.Circle;
+
+                return (
+                  <div key={habit.id} className="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border-2 border-gray-200 dark:border-gray-700">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center space-x-3 flex-1 min-w-0">
                         <div
-                          className="w-3 h-3 rounded-full"
-                          style={{ backgroundColor: habit.color }}
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-gray-900 dark:text-gray-100 truncate">{habit.name}</h3>
-                        {habit.description && (
-                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 truncate">{habit.description}</p>
-                        )}
+                          className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                          style={{ backgroundColor: habit.color + '15' }}
+                        >
+                          <IconComponent size={22} color={habit.color} />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold text-gray-900 dark:text-gray-100 truncate">{habit.name}</h3>
+                          {habit.description && (
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 truncate">{habit.description}</p>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-3">
@@ -153,7 +161,8 @@ export const StatisticsPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         ) : (

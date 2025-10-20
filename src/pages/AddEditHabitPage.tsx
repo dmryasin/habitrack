@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Save, Trash2 } from 'lucide-react';
+import { Save, Trash2, Plus, Edit3 } from 'lucide-react';
 import * as Icons from 'lucide-react';
 import { useHabitStore } from '../store/useHabitStore';
 import { Button } from '../components/Button';
@@ -11,7 +11,7 @@ import { getTranslation } from '../utils/i18n';
 export const AddEditHabitPage: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { habits, addHabit, updateHabit, deleteHabit, language } = useHabitStore();
+  const { habits, addHabit, updateHabit, deleteHabit, language, isPremium } = useHabitStore();
   const t = (key: string) => getTranslation(language, key);
 
   const isEditMode = !!id;
@@ -105,18 +105,23 @@ export const AddEditHabitPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <div className="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-10">
-        <div className="max-w-lg mx-auto px-6 py-4 flex items-center justify-between">
-          <button
-            onClick={() => navigate('/')}
-            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl transition-colors"
-          >
-            <ArrowLeft size={24} className="text-gray-900 dark:text-gray-100" />
-          </button>
-          <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">
-            {isEditMode ? t('editHabit') : t('addHabit')}
-          </h1>
-          <div className="w-10" /> {/* Spacer */}
+      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <div className="max-w-lg mx-auto px-6 py-6">
+          <div className="flex items-center space-x-3 mb-2">
+            <div className="w-10 h-10 rounded-xl bg-[#C85A3E]/10 dark:bg-[#C85A3E]/20 flex items-center justify-center">
+              {isEditMode ? (
+                <Edit3 size={22} className="text-[#C85A3E]" />
+              ) : (
+                <Plus size={22} className="text-[#C85A3E]" />
+              )}
+            </div>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+              {isEditMode ? t('editHabit') : t('addHabit')}
+            </h1>
+          </div>
+          <p className="text-sm text-gray-500 dark:text-gray-400 ml-13">
+            {isEditMode ? t('editHabitDescription') : t('addHabitDescription')}
+          </p>
         </div>
       </div>
 
@@ -155,62 +160,90 @@ export const AddEditHabitPage: React.FC = () => {
 
         {/* Color Selection */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
             {t('selectColor')}
           </label>
-          <div className="grid grid-cols-4 gap-3">
-            {HABIT_COLORS.map((color) => (
-              <button
-                key={color.value}
-                type="button"
-                onClick={() => setFormData({ ...formData, color: color.value })}
-                className={clsx(
-                  'aspect-square rounded-xl transition-all duration-200',
-                  formData.color === color.value
-                    ? 'ring-4 ring-offset-2 scale-110'
-                    : 'hover:scale-105'
-                )}
-                style={{
-                  backgroundColor: color.value,
-                  ...(formData.color === color.value && {
-                    '--tw-ring-color': color.value,
-                  } as React.CSSProperties),
-                }}
-              >
-                <span className="sr-only">{color.name}</span>
-              </button>
-            ))}
+          <div className="flex flex-wrap gap-2">
+            {HABIT_COLORS.map((color) => {
+              const isLocked = color.isPremium && !isPremium;
+              return (
+                <button
+                  key={color.value}
+                  type="button"
+                  onClick={() => {
+                    if (isLocked) {
+                      navigate('/premium');
+                    } else {
+                      setFormData({ ...formData, color: color.value });
+                    }
+                  }}
+                  className={clsx(
+                    'w-12 h-12 rounded-xl transition-all duration-200 relative',
+                    formData.color === color.value
+                      ? 'ring-3 ring-offset-2 scale-105'
+                      : 'hover:scale-105 opacity-80 hover:opacity-100',
+                    isLocked && 'cursor-pointer'
+                  )}
+                  style={{
+                    backgroundColor: color.value,
+                    ...(formData.color === color.value && {
+                      '--tw-ring-color': color.value,
+                    } as React.CSSProperties),
+                  }}
+                >
+                  {isLocked && (
+                    <div className="absolute inset-0 bg-black/40 rounded-xl flex items-center justify-center">
+                      <Icons.Lock size={16} className="text-white" />
+                    </div>
+                  )}
+                  <span className="sr-only">{color.name}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Icon Selection */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
             {t('selectIcon')}
           </label>
-          <div className="grid grid-cols-4 gap-3">
+          <div className="flex flex-wrap gap-2">
             {HABIT_ICONS.map((icon) => {
               const IconComponent = getIconComponent(icon.value);
+              const isLocked = icon.isPremium && !isPremium;
               return (
                 <button
                   key={icon.value}
                   type="button"
-                  onClick={() => setFormData({ ...formData, icon: icon.value })}
+                  onClick={() => {
+                    if (isLocked) {
+                      navigate('/premium');
+                    } else {
+                      setFormData({ ...formData, icon: icon.value });
+                    }
+                  }}
                   className={clsx(
-                    'aspect-square rounded-xl border-2 transition-all duration-200 flex items-center justify-center',
+                    'w-12 h-12 rounded-xl border-2 transition-all duration-200 flex items-center justify-center relative',
                     formData.icon === icon.value
-                      ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/30 scale-110'
-                      : 'border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600 hover:scale-105'
+                      ? 'border-[#C85A3E] bg-[#C85A3E]/10 dark:bg-[#C85A3E]/20'
+                      : 'border-gray-200 dark:border-gray-700 hover:border-[#C85A3E] dark:hover:border-[#C85A3E]',
+                    isLocked && 'cursor-pointer'
                   )}
                 >
                   <IconComponent
-                    size={24}
+                    size={20}
                     className={
                       formData.icon === icon.value
-                        ? 'text-primary-600 dark:text-primary-400'
+                        ? 'text-[#C85A3E]'
                         : 'text-gray-600 dark:text-gray-400'
                     }
                   />
+                  {isLocked && (
+                    <div className="absolute inset-0 bg-black/40 rounded-xl flex items-center justify-center">
+                      <Icons.Lock size={16} className="text-white" />
+                    </div>
+                  )}
                 </button>
               );
             })}
@@ -218,24 +251,24 @@ export const AddEditHabitPage: React.FC = () => {
         </div>
 
         {/* Preview */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border-2 border-primary-100 dark:border-primary-900/30">
-          <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">{t('preview')}</p>
-          <div className="flex items-center space-x-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border-2 border-gray-200 dark:border-gray-700">
+          <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-3 uppercase tracking-wide">{t('preview')}</p>
+          <div className="flex items-center space-x-3">
             <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm"
-              style={{ backgroundColor: formData.color + '20' }}
+              className="w-12 h-12 rounded-xl flex items-center justify-center"
+              style={{ backgroundColor: formData.color + '15' }}
             >
               {React.createElement(getIconComponent(formData.icon), {
-                size: 32,
+                size: 24,
                 color: formData.color,
               })}
             </div>
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+            <div className="flex-1 min-w-0">
+              <h3 className="text-base font-bold text-gray-900 dark:text-gray-100 truncate">
                 {formData.name || t('habitName')}
               </h3>
               {formData.description && (
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{formData.description}</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5 truncate">{formData.description}</p>
               )}
             </div>
           </div>

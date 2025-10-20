@@ -49,16 +49,17 @@ function App() {
       </Routes>
 
       <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={true}
         newestOnTop
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
+        pauseOnFocusLoss={false}
         draggable
-        pauseOnHover
+        pauseOnHover={false}
         theme={theme === 'dark' ? 'dark' : 'light'}
+        className="!mt-16"
       />
     </BrowserRouter>
   );

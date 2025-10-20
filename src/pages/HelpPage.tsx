@@ -736,45 +736,41 @@ export const HelpPage: React.FC = () => {
 
       <div className="max-w-3xl mx-auto px-6 py-8 space-y-6">
         {/* Intro */}
-        <div className="bg-gradient-to-br from-primary-50 to-orange-50 dark:from-primary-900/30 dark:to-orange-900/30 rounded-2xl p-6 shadow-sm">
-          <div className="flex items-start space-x-4">
-            <div className="w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm">
-              <HelpCircle size={32} className="text-primary-600 dark:text-primary-400" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                {pageContent.intro.heading}
-              </h2>
-              <p className="text-gray-700 dark:text-gray-300">
-                {pageContent.intro.description}
-              </p>
-            </div>
-          </div>
+        <div className="bg-white dark:bg-gray-800 rounded-3xl p-5 shadow-sm border-2 border-gray-200 dark:border-gray-700">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+            {pageContent.intro.heading}
+          </h2>
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            {pageContent.intro.description}
+          </p>
         </div>
 
         {/* Quick Links */}
         <div className="grid md:grid-cols-3 gap-4">
           <a
             href="mailto:support@habitracker.com"
-            className="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border-2 border-gray-200 dark:border-gray-700 hover:border-[#C85A3E] dark:hover:border-[#C85A3E] transition-all"
           >
-            <Mail size={28} className="text-primary-500 mb-3" />
+            <Mail size={28} className="text-[#C85A3E] mb-3" />
             <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">{pageContent.quickLinks.email.title}</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">{pageContent.quickLinks.email.description}</p>
           </a>
           <button
             onClick={() => navigate('/privacy')}
-            className="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow text-left"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border-2 border-gray-200 dark:border-gray-700 hover:border-[#C85A3E] dark:hover:border-[#C85A3E] transition-all text-left"
           >
-            <BookOpen size={28} className="text-blue-500 mb-3" />
+            <BookOpen size={28} className="text-[#C85A3E] mb-3" />
             <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">{pageContent.quickLinks.privacy.title}</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">{pageContent.quickLinks.privacy.description}</p>
           </button>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm">
-            <MessageCircle size={28} className="text-green-500 mb-3" />
+          <a
+            href="mailto:support@habitracker.com?subject=Feedback"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border-2 border-gray-200 dark:border-gray-700 hover:border-[#C85A3E] dark:hover:border-[#C85A3E] transition-all block"
+          >
+            <MessageCircle size={28} className="text-[#C85A3E] mb-3" />
             <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">{pageContent.quickLinks.feedback.title}</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">{pageContent.quickLinks.feedback.description}</p>
-          </div>
+          </a>
         </div>
 
         {/* FAQ by Category */}
@@ -824,7 +820,7 @@ export const HelpPage: React.FC = () => {
           </p>
           <a
             href="mailto:support@habitracker.com"
-            className="inline-flex items-center space-x-2 bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-xl font-semibold transition-colors"
+            className="inline-flex items-center space-x-2 bg-[#C85A3E] hover:bg-[#B34F35] text-white px-6 py-3 rounded-xl font-semibold transition-colors"
           >
             <Mail size={20} />
             <span>{pageContent.contact.button}</span>

@@ -12,6 +12,7 @@ interface HabitStore {
   loading: boolean;
   theme: 'light' | 'dark';
   language: Language;
+  notificationsEnabled: boolean;
 
   // Actions
   loadData: () => Promise<void>;
@@ -22,6 +23,7 @@ interface HabitStore {
   activatePremium: () => Promise<void>;
   toggleTheme: () => Promise<void>;
   setLanguage: (lang: Language) => Promise<void>;
+  setNotificationsEnabled: (enabled: boolean) => Promise<void>;
   resetAllData: () => Promise<void>;
 }
 
@@ -31,17 +33,19 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
   loading: true,
   theme: 'light',
   language: 'tr',
+  notificationsEnabled: false,
 
   loadData: async () => {
     try {
-      const [habits, isPremium, theme, language] = await Promise.all([
+      const [habits, isPremium, theme, language, notificationsEnabled] = await Promise.all([
         storage.getHabits(),
         storage.getIsPremium(),
         storage.getTheme(),
         storage.getLanguage(),
+        storage.getNotificationsEnabled(),
       ]);
 
-      set({ habits, isPremium, theme, language, loading: false });
+      set({ habits, isPremium, theme, language, notificationsEnabled, loading: false });
 
       // Apply theme on load
       if (theme === 'dark') {
@@ -174,6 +178,15 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
       console.error('Error changing language:', error);
       const { language } = get();
       toast.error(getTranslation(language, 'errorChangingLanguage'));
+    }
+  },
+
+  setNotificationsEnabled: async (enabled: boolean) => {
+    try {
+      await storage.saveNotificationsEnabled(enabled);
+      set({ notificationsEnabled: enabled });
+    } catch (error) {
+      console.error('Error changing notifications:', error);
     }
   },
 

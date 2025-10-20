@@ -18,14 +18,14 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
 
   return (
     <div className={clsx('space-y-2', className)}>
-      <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+      <div className="h-3 bg-white dark:bg-gray-700 rounded-full overflow-hidden shadow-inner">
         <div
-          className="h-full bg-gradient-to-r from-primary-500 to-primary-600 rounded-full transition-all duration-500 ease-out"
+          className="h-full bg-[#C85A3E] rounded-full transition-all duration-500 ease-out shadow-sm"
           style={{ width: `${percentage}%` }}
         />
       </div>
       {showPercentage && (
-        <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+        <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">
           {value} / {max} ({percentage}%)
         </p>
       )}

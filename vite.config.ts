@@ -13,7 +13,7 @@ export default defineConfig({
         name: 'Alışkanlık Takipçisi',
         short_name: 'Habit Tracker',
         description: 'Günlük alışkanlıklarınızı takip edin ve hedeflerinize ulaşın!',
-        theme_color: '#22c55e',
+        theme_color: '#C85A3E',
         background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
