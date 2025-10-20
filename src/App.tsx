@@ -1,0 +1,67 @@
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { useHabitStore } from './store/useHabitStore';
+import { Layout } from './components/Layout';
+import { HomePage } from './pages/HomePage';
+import { AddEditHabitPage } from './pages/AddEditHabitPage';
+import { StatisticsPage } from './pages/StatisticsPage';
+import { PremiumPage } from './pages/PremiumPage';
+import { SettingsPage } from './pages/SettingsPage';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
+import { HelpPage } from './pages/HelpPage';
+import { TermsPage } from './pages/TermsPage';
+
+function App() {
+  const { loadData, loading, theme } = useHabitStore();
+
+  useEffect(() => {
+    loadData();
+  }, [loadData]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600">Yükleniyor...</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="add" element={<AddEditHabitPage />} />
+          <Route path="edit/:id" element={<AddEditHabitPage />} />
+          <Route path="statistics" element={<StatisticsPage />} />
+          <Route path="premium" element={<PremiumPage />} />
+          <Route path="settings" element={<SettingsPage />} />
+        </Route>
+        <Route path="/privacy" element={<PrivacyPolicyPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/help" element={<HelpPage />} />
+      </Routes>
+
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={theme === 'dark' ? 'dark' : 'light'}
+      />
+    </BrowserRouter>
+  );
+}
+
+export default App;

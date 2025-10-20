@@ -1,0 +1,719 @@
+export type Language = 'tr' | 'en' | 'es' | 'fr' | 'de' | 'it';
+
+export const translations = {
+  tr: {
+    // Common
+    save: 'Kaydet',
+    cancel: 'İptal',
+    delete: 'Sil',
+    edit: 'Düzenle',
+    add: 'Ekle',
+    close: 'Kapat',
+    on: 'Açık',
+    off: 'Kapalı',
+    active: 'Aktif',
+    free: 'Ücretsiz',
+
+    // Navigation
+    home: 'Ana Sayfa',
+    statistics: 'İstatistikler',
+    settings: 'Ayarlar',
+    premium: 'Premium',
+
+    // Home Page
+    hello: 'Merhaba',
+    dailyProgress: 'Günlük İlerleme',
+    myHabits: 'Alışkanlıklarım',
+    noHabitsYet: 'Henüz alışkanlık yok',
+    addFirstHabit: 'İlk Alışkanlığı Ekle',
+    completed: 'tamamlandı',
+
+    // Habits
+    habitName: 'Alışkanlık Adı',
+    description: 'Açıklama',
+    optional: 'Opsiyonel',
+    selectColor: 'Renk Seçin',
+    selectIcon: 'İkon Seçin',
+    preview: 'Önizleme',
+    addHabit: 'Alışkanlık Ekle',
+    editHabit: 'Alışkanlığı Düzenle',
+    deleteHabit: 'Alışkanlığı Sil',
+
+    // Statistics
+    totalStreak: 'Toplam Seri',
+    longestStreak: 'En Uzun Seri',
+    totalCompletions: 'Toplam Tamamlama',
+    averageSuccess: 'Ortalama Başarı',
+    habitDetails: 'Alışkanlık Detayları',
+    currentStreak: 'Aktif Seri',
+    completionRate: 'Başarı Oranı',
+    days: 'gün',
+
+    // Settings
+    account: 'Hesap',
+    preferences: 'Tercihler',
+    dataManagement: 'Veri Yönetimi',
+    support: 'Destek',
+    premiumStatus: 'Premium Durumu',
+    theme: 'Tema',
+    light: 'Aydınlık',
+    dark: 'Karanlık',
+    notifications: 'Bildirimler',
+    language: 'Dil',
+    exportData: 'Verileri Dışa Aktar',
+    importData: 'Verileri İçe Aktar',
+    helpFaq: 'Yardım & SSS',
+    contact: 'İletişim',
+    privacyPolicy: 'Gizlilik Politikası',
+    dangerZone: 'Tehlikeli Bölge',
+    resetAllData: 'Tüm Verileri Sıfırla',
+    termsOfService: 'Kullanım Koşulları',
+
+    // App Info
+    appName: 'Habitracker',
+    version: 'Versiyon',
+    totalHabits: 'Toplam Alışkanlık',
+    accountType: 'Hesap Tipi',
+    limit: 'Limit',
+    unlimited: 'Sınırsız',
+    habitsLimit: 'alışkanlık',
+    customizeApp: 'Uygulamayı özelleştirin',
+    copyright: '© 2025 Habitracker',
+
+    // Premium
+    upgradeToPremium: 'Premium\'a Yükseltin',
+    unlimitedHabits: 'Sınırsız alışkanlık',
+    premiumFeatures: 'Premium Özellikler',
+    monthly: 'Aylık',
+    yearly: 'Yıllık',
+
+    // Messages
+    habitAdded: 'Alışkanlık başarıyla eklendi!',
+    habitUpdated: 'Alışkanlık güncellendi!',
+    habitDeleted: 'Alışkanlık silindi',
+    dataExported: 'Veriler başarıyla dışa aktarıldı!',
+    dataImported: 'Veriler başarıyla içe aktarıldı!',
+    premiumActivated: 'Premium aktif edildi!',
+    confirmDelete: 'Bu alışkanlığı silmek istediğinize emin misiniz?',
+    confirmReset: 'TÜM VERİLERİNİZ silinecek! Bu işlem geri alınamaz. Devam etmek istiyor musunuz?',
+    errorLoadingData: 'Veriler yüklenirken hata oluştu',
+    premiumLimit: 'Ücretsiz sürümde maksimum 3 alışkanlık ekleyebilirsiniz!',
+    errorAddingHabit: 'Alışkanlık eklenirken hata oluştu',
+    errorUpdatingHabit: 'Alışkanlık güncellenirken hata oluştu',
+    errorDeletingHabit: 'Alışkanlık silinirken hata oluştu',
+    errorOccurred: 'Hata oluştu',
+    errorActivatingPremium: 'Premium aktif edilirken hata oluştu',
+    darkThemeActive: 'Karanlık tema aktif',
+    lightThemeActive: 'Aydınlık tema aktif',
+    errorChangingTheme: 'Tema değiştirilirken hata oluştu',
+    languageChanged: 'Dil değiştirildi',
+    errorChangingLanguage: 'Dil değiştirilirken hata oluştu',
+    allDataReset: 'Tüm veriler sıfırlandı',
+    errorResettingData: 'Veriler sıfırlanırken hata oluştu',
+
+    // Form Validation
+    fieldRequired: 'Lütfen bu alanı doldurun.',
+    habitNamePlaceholder: 'Örn: Kitap okuma',
+    habitDescriptionPlaceholder: 'Bu alışkanlık hakkında kısa bir açıklama...',
+
+    // Notifications
+    notificationsEnabled: 'Bildirimler açıldı',
+    notificationsDenied: 'Bildirim izni reddedildi',
+    notificationsDisabled: 'Bildirimler kapatıldı',
+  },
+  en: {
+    // Common
+    save: 'Save',
+    cancel: 'Cancel',
+    delete: 'Delete',
+    edit: 'Edit',
+    add: 'Add',
+    close: 'Close',
+    on: 'On',
+    off: 'Off',
+    active: 'Active',
+    free: 'Free',
+
+    // Navigation
+    home: 'Home',
+    statistics: 'Statistics',
+    settings: 'Settings',
+    premium: 'Premium',
+
+    // Home Page
+    hello: 'Hello',
+    dailyProgress: 'Daily Progress',
+    myHabits: 'My Habits',
+    noHabitsYet: 'No habits yet',
+    addFirstHabit: 'Add First Habit',
+    completed: 'completed',
+
+    // Habits
+    habitName: 'Habit Name',
+    description: 'Description',
+    optional: 'Optional',
+    selectColor: 'Select Color',
+    selectIcon: 'Select Icon',
+    preview: 'Preview',
+    addHabit: 'Add Habit',
+    editHabit: 'Edit Habit',
+    deleteHabit: 'Delete Habit',
+
+    // Statistics
+    totalStreak: 'Total Streak',
+    longestStreak: 'Longest Streak',
+    totalCompletions: 'Total Completions',
+    averageSuccess: 'Average Success',
+    habitDetails: 'Habit Details',
+    currentStreak: 'Current Streak',
+    completionRate: 'Completion Rate',
+    days: 'days',
+
+    // Settings
+    account: 'Account',
+    preferences: 'Preferences',
+    dataManagement: 'Data Management',
+    support: 'Support',
+    premiumStatus: 'Premium Status',
+    theme: 'Theme',
+    light: 'Light',
+    dark: 'Dark',
+    notifications: 'Notifications',
+    language: 'Language',
+    exportData: 'Export Data',
+    importData: 'Import Data',
+    helpFaq: 'Help & FAQ',
+    contact: 'Contact',
+    privacyPolicy: 'Privacy Policy',
+    dangerZone: 'Danger Zone',
+    resetAllData: 'Reset All Data',
+    termsOfService: 'Terms of Service',
+
+    // App Info
+    appName: 'Habitracker',
+    version: 'Version',
+    totalHabits: 'Total Habits',
+    accountType: 'Account Type',
+    limit: 'Limit',
+    unlimited: 'Unlimited',
+    habitsLimit: 'habits',
+    customizeApp: 'Customize your app',
+    copyright: '© 2025 Habitracker',
+
+    // Premium
+    upgradeToPremium: 'Upgrade to Premium',
+    unlimitedHabits: 'Unlimited habits',
+    premiumFeatures: 'Premium Features',
+    monthly: 'Monthly',
+    yearly: 'Yearly',
+
+    // Messages
+    habitAdded: 'Habit added successfully!',
+    habitUpdated: 'Habit updated!',
+    habitDeleted: 'Habit deleted',
+    dataExported: 'Data exported successfully!',
+    dataImported: 'Data imported successfully!',
+    premiumActivated: 'Premium activated!',
+    confirmDelete: 'Are you sure you want to delete this habit?',
+    confirmReset: 'ALL YOUR DATA will be deleted! This action cannot be undone. Do you want to continue?',
+    errorLoadingData: 'Error loading data',
+    premiumLimit: 'You can add maximum 3 habits in the free version!',
+    errorAddingHabit: 'Error adding habit',
+    errorUpdatingHabit: 'Error updating habit',
+    errorDeletingHabit: 'Error deleting habit',
+    errorOccurred: 'An error occurred',
+    errorActivatingPremium: 'Error activating premium',
+    darkThemeActive: 'Dark theme active',
+    lightThemeActive: 'Light theme active',
+    errorChangingTheme: 'Error changing theme',
+    languageChanged: 'Language changed',
+    errorChangingLanguage: 'Error changing language',
+    allDataReset: 'All data reset',
+    errorResettingData: 'Error resetting data',
+
+    // Form Validation
+    fieldRequired: 'Please fill out this field.',
+    habitNamePlaceholder: 'e.g: Reading books',
+    habitDescriptionPlaceholder: 'A short description about this habit...',
+
+    // Notifications
+    notificationsEnabled: 'Notifications enabled',
+    notificationsDenied: 'Notification permission denied',
+    notificationsDisabled: 'Notifications disabled',
+  },
+  es: {
+    // Common
+    save: 'Guardar',
+    cancel: 'Cancelar',
+    delete: 'Eliminar',
+    edit: 'Editar',
+    add: 'Agregar',
+    close: 'Cerrar',
+
+    // Navigation
+    home: 'Inicio',
+    statistics: 'Estadísticas',
+    settings: 'Configuración',
+    premium: 'Premium',
+
+    // Home Page
+    hello: 'Hola',
+    dailyProgress: 'Progreso Diario',
+    myHabits: 'Mis Hábitos',
+    noHabitsYet: 'Aún no hay hábitos',
+    addFirstHabit: 'Agregar Primer Hábito',
+    completed: 'completado',
+
+    // Habits
+    habitName: 'Nombre del Hábito',
+    description: 'Descripción',
+    optional: 'Opcional',
+    selectColor: 'Seleccionar Color',
+    selectIcon: 'Seleccionar Ícono',
+    preview: 'Vista Previa',
+    addHabit: 'Agregar Hábito',
+    editHabit: 'Editar Hábito',
+    deleteHabit: 'Eliminar Hábito',
+
+    // Statistics
+    totalStreak: 'Racha Total',
+    longestStreak: 'Racha Más Larga',
+    totalCompletions: 'Completaciones Totales',
+    averageSuccess: 'Éxito Promedio',
+    habitDetails: 'Detalles del Hábito',
+    currentStreak: 'Racha Actual',
+    completionRate: 'Tasa de Completación',
+    days: 'días',
+
+    // Settings
+    account: 'Cuenta',
+    preferences: 'Preferencias',
+    dataManagement: 'Gestión de Datos',
+    support: 'Soporte',
+    premiumStatus: 'Estado Premium',
+    theme: 'Tema',
+    light: 'Claro',
+    dark: 'Oscuro',
+    notifications: 'Notificaciones',
+    language: 'Idioma',
+    exportData: 'Exportar Datos',
+    importData: 'Importar Datos',
+    helpFaq: 'Ayuda y Preguntas',
+    contact: 'Contacto',
+    privacyPolicy: 'Política de Privacidad',
+    dangerZone: 'Zona Peligrosa',
+    resetAllData: 'Restablecer Todos los Datos',
+    termsOfService: 'Términos de Servicio',
+
+    // App Info
+    appName: 'Habitracker',
+    version: 'Versión',
+    totalHabits: 'Hábitos Totales',
+    accountType: 'Tipo de Cuenta',
+    limit: 'Límite',
+    unlimited: 'Ilimitado',
+    habitsLimit: 'hábitos',
+    customizeApp: 'Personaliza tu aplicación',
+    copyright: '© 2025 Habitracker',
+
+    // Premium
+    upgradeToPremium: 'Actualizar a Premium',
+    unlimitedHabits: 'Hábitos ilimitados',
+    premiumFeatures: 'Características Premium',
+    monthly: 'Mensual',
+    yearly: 'Anual',
+
+    // Messages
+    habitAdded: '¡Hábito agregado con éxito!',
+    habitUpdated: '¡Hábito actualizado!',
+    habitDeleted: 'Hábito eliminado',
+    dataExported: '¡Datos exportados con éxito!',
+    dataImported: '¡Datos importados con éxito!',
+    premiumActivated: '¡Premium activado!',
+    confirmDelete: '¿Estás seguro de que quieres eliminar este hábito?',
+    confirmReset: '¡TODOS TUS DATOS serán eliminados! Esta acción no se puede deshacer. ¿Quieres continuar?',
+    errorLoadingData: 'Error al cargar los datos',
+    premiumLimit: '¡Puedes agregar máximo 3 hábitos en la versión gratuita!',
+    errorAddingHabit: 'Error al agregar hábito',
+    errorUpdatingHabit: 'Error al actualizar hábito',
+    errorDeletingHabit: 'Error al eliminar hábito',
+    errorOccurred: 'Ocurrió un error',
+    errorActivatingPremium: 'Error al activar premium',
+    darkThemeActive: 'Tema oscuro activo',
+    lightThemeActive: 'Tema claro activo',
+    errorChangingTheme: 'Error al cambiar tema',
+    languageChanged: 'Idioma cambiado',
+    errorChangingLanguage: 'Error al cambiar idioma',
+    allDataReset: 'Todos los datos restablecidos',
+    errorResettingData: 'Error al restablecer datos',
+
+    // Form Validation
+    fieldRequired: 'Por favor completa este campo.',
+    habitNamePlaceholder: 'Ej: Leer libros',
+    habitDescriptionPlaceholder: 'Una breve descripción sobre este hábito...',
+
+    // Notifications
+    notificationsEnabled: 'Notificaciones activadas',
+    notificationsDenied: 'Permiso de notificación denegado',
+    notificationsDisabled: 'Notificaciones desactivadas',
+  },
+  fr: {
+    // Common
+    save: 'Enregistrer',
+    cancel: 'Annuler',
+    delete: 'Supprimer',
+    edit: 'Modifier',
+    add: 'Ajouter',
+    close: 'Fermer',
+
+    // Navigation
+    home: 'Accueil',
+    statistics: 'Statistiques',
+    settings: 'Paramètres',
+    premium: 'Premium',
+
+    // Home Page
+    hello: 'Bonjour',
+    dailyProgress: 'Progrès Quotidien',
+    myHabits: 'Mes Habitudes',
+    noHabitsYet: 'Pas encore d\'habitudes',
+    addFirstHabit: 'Ajouter Première Habitude',
+    completed: 'terminé',
+
+    // Habits
+    habitName: 'Nom de l\'Habitude',
+    description: 'Description',
+    optional: 'Optionnel',
+    selectColor: 'Choisir la Couleur',
+    selectIcon: 'Choisir l\'Icône',
+    preview: 'Aperçu',
+    addHabit: 'Ajouter Habitude',
+    editHabit: 'Modifier Habitude',
+    deleteHabit: 'Supprimer Habitude',
+
+    // Statistics
+    totalStreak: 'Série Totale',
+    longestStreak: 'Plus Longue Série',
+    totalCompletions: 'Complétions Totales',
+    averageSuccess: 'Succès Moyen',
+    habitDetails: 'Détails de l\'Habitude',
+    currentStreak: 'Série Actuelle',
+    completionRate: 'Taux de Complétion',
+    days: 'jours',
+
+    // Settings
+    account: 'Compte',
+    preferences: 'Préférences',
+    dataManagement: 'Gestion des Données',
+    support: 'Support',
+    premiumStatus: 'Statut Premium',
+    theme: 'Thème',
+    light: 'Clair',
+    dark: 'Sombre',
+    notifications: 'Notifications',
+    language: 'Langue',
+    exportData: 'Exporter les Données',
+    importData: 'Importer les Données',
+    helpFaq: 'Aide et FAQ',
+    contact: 'Contact',
+    privacyPolicy: 'Politique de Confidentialité',
+    dangerZone: 'Zone Dangereuse',
+    resetAllData: 'Réinitialiser Toutes les Données',
+    termsOfService: 'Conditions d\'Utilisation',
+
+    // App Info
+    appName: 'Habitracker',
+    version: 'Version',
+    totalHabits: 'Habitudes Totales',
+    accountType: 'Type de Compte',
+    limit: 'Limite',
+    unlimited: 'Illimité',
+    habitsLimit: 'habitudes',
+    customizeApp: 'Personnalisez votre application',
+    copyright: '© 2025 Habitracker',
+
+    // Premium
+    upgradeToPremium: 'Passer à Premium',
+    unlimitedHabits: 'Habitudes illimitées',
+    premiumFeatures: 'Fonctionnalités Premium',
+    monthly: 'Mensuel',
+    yearly: 'Annuel',
+
+    // Messages
+    habitAdded: 'Habitude ajoutée avec succès!',
+    habitUpdated: 'Habitude mise à jour!',
+    habitDeleted: 'Habitude supprimée',
+    dataExported: 'Données exportées avec succès!',
+    dataImported: 'Données importées avec succès!',
+    premiumActivated: 'Premium activé!',
+    confirmDelete: 'Êtes-vous sûr de vouloir supprimer cette habitude?',
+    confirmReset: 'TOUTES VOS DONNÉES seront supprimées! Cette action ne peut pas être annulée. Voulez-vous continuer?',
+    errorLoadingData: 'Erreur lors du chargement des données',
+    premiumLimit: 'Vous pouvez ajouter un maximum de 3 habitudes dans la version gratuite!',
+    errorAddingHabit: 'Erreur lors de l\'ajout de l\'habitude',
+    errorUpdatingHabit: 'Erreur lors de la mise à jour de l\'habitude',
+    errorDeletingHabit: 'Erreur lors de la suppression de l\'habitude',
+    errorOccurred: 'Une erreur s\'est produite',
+    errorActivatingPremium: 'Erreur lors de l\'activation premium',
+    darkThemeActive: 'Thème sombre actif',
+    lightThemeActive: 'Thème clair actif',
+    errorChangingTheme: 'Erreur lors du changement de thème',
+    languageChanged: 'Langue modifiée',
+    errorChangingLanguage: 'Erreur lors du changement de langue',
+    allDataReset: 'Toutes les données réinitialisées',
+    errorResettingData: 'Erreur lors de la réinitialisation des données',
+
+    // Form Validation
+    fieldRequired: 'Veuillez remplir ce champ.',
+    habitNamePlaceholder: 'Ex: Lire des livres',
+    habitDescriptionPlaceholder: 'Une brève description de cette habitude...',
+
+    // Notifications
+    notificationsEnabled: 'Notifications activées',
+    notificationsDenied: 'Autorisation de notification refusée',
+    notificationsDisabled: 'Notifications désactivées',
+  },
+  de: {
+    // Common
+    save: 'Speichern',
+    cancel: 'Abbrechen',
+    delete: 'Löschen',
+    edit: 'Bearbeiten',
+    add: 'Hinzufügen',
+    close: 'Schließen',
+
+    // Navigation
+    home: 'Startseite',
+    statistics: 'Statistiken',
+    settings: 'Einstellungen',
+    premium: 'Premium',
+
+    // Home Page
+    hello: 'Hallo',
+    dailyProgress: 'Täglicher Fortschritt',
+    myHabits: 'Meine Gewohnheiten',
+    noHabitsYet: 'Noch keine Gewohnheiten',
+    addFirstHabit: 'Erste Gewohnheit Hinzufügen',
+    completed: 'abgeschlossen',
+
+    // Habits
+    habitName: 'Gewohnheitsname',
+    description: 'Beschreibung',
+    optional: 'Optional',
+    selectColor: 'Farbe Wählen',
+    selectIcon: 'Symbol Wählen',
+    preview: 'Vorschau',
+    addHabit: 'Gewohnheit Hinzufügen',
+    editHabit: 'Gewohnheit Bearbeiten',
+    deleteHabit: 'Gewohnheit Löschen',
+
+    // Statistics
+    totalStreak: 'Gesamtsträhne',
+    longestStreak: 'Längste Strähne',
+    totalCompletions: 'Gesamtabschlüsse',
+    averageSuccess: 'Durchschnittlicher Erfolg',
+    habitDetails: 'Gewohnheitsdetails',
+    currentStreak: 'Aktuelle Strähne',
+    completionRate: 'Abschlussrate',
+    days: 'Tage',
+
+    // Settings
+    account: 'Konto',
+    preferences: 'Einstellungen',
+    dataManagement: 'Datenverwaltung',
+    support: 'Unterstützung',
+    premiumStatus: 'Premium-Status',
+    theme: 'Design',
+    light: 'Hell',
+    dark: 'Dunkel',
+    notifications: 'Benachrichtigungen',
+    language: 'Sprache',
+    exportData: 'Daten Exportieren',
+    importData: 'Daten Importieren',
+    helpFaq: 'Hilfe & FAQ',
+    contact: 'Kontakt',
+    privacyPolicy: 'Datenschutzrichtlinie',
+    dangerZone: 'Gefahrenzone',
+    resetAllData: 'Alle Daten Zurücksetzen',
+    termsOfService: 'Nutzungsbedingungen',
+
+    // App Info
+    appName: 'Habitracker',
+    version: 'Version',
+    totalHabits: 'Gewohnheiten Gesamt',
+    accountType: 'Kontotyp',
+    limit: 'Limit',
+    unlimited: 'Unbegrenzt',
+    habitsLimit: 'Gewohnheiten',
+    customizeApp: 'Passen Sie Ihre App an',
+    copyright: '© 2025 Habitracker',
+
+    // Premium
+    upgradeToPremium: 'Auf Premium Upgraden',
+    unlimitedHabits: 'Unbegrenzte Gewohnheiten',
+    premiumFeatures: 'Premium-Funktionen',
+    monthly: 'Monatlich',
+    yearly: 'Jährlich',
+
+    // Messages
+    habitAdded: 'Gewohnheit erfolgreich hinzugefügt!',
+    habitUpdated: 'Gewohnheit aktualisiert!',
+    habitDeleted: 'Gewohnheit gelöscht',
+    dataExported: 'Daten erfolgreich exportiert!',
+    dataImported: 'Daten erfolgreich importiert!',
+    premiumActivated: 'Premium aktiviert!',
+    confirmDelete: 'Möchten Sie diese Gewohnheit wirklich löschen?',
+    confirmReset: 'ALLE IHRE DATEN werden gelöscht! Diese Aktion kann nicht rückgängig gemacht werden. Möchten Sie fortfahren?',
+    errorLoadingData: 'Fehler beim Laden der Daten',
+    premiumLimit: 'Sie können maximal 3 Gewohnheiten in der kostenlosen Version hinzufügen!',
+    errorAddingHabit: 'Fehler beim Hinzufügen der Gewohnheit',
+    errorUpdatingHabit: 'Fehler beim Aktualisieren der Gewohnheit',
+    errorDeletingHabit: 'Fehler beim Löschen der Gewohnheit',
+    errorOccurred: 'Ein Fehler ist aufgetreten',
+    errorActivatingPremium: 'Fehler beim Aktivieren von Premium',
+    darkThemeActive: 'Dunkles Theme aktiv',
+    lightThemeActive: 'Helles Theme aktiv',
+    errorChangingTheme: 'Fehler beim Ändern des Themes',
+    languageChanged: 'Sprache geändert',
+    errorChangingLanguage: 'Fehler beim Ändern der Sprache',
+    allDataReset: 'Alle Daten zurückgesetzt',
+    errorResettingData: 'Fehler beim Zurücksetzen der Daten',
+
+    // Form Validation
+    fieldRequired: 'Bitte füllen Sie dieses Feld aus.',
+    habitNamePlaceholder: 'Z.B: Bücher lesen',
+    habitDescriptionPlaceholder: 'Eine kurze Beschreibung dieser Gewohnheit...',
+
+    // Notifications
+    notificationsEnabled: 'Benachrichtigungen aktiviert',
+    notificationsDenied: 'Benachrichtigungserlaubnis verweigert',
+    notificationsDisabled: 'Benachrichtigungen deaktiviert',
+  },
+  it: {
+    // Common
+    save: 'Salva',
+    cancel: 'Annulla',
+    delete: 'Elimina',
+    edit: 'Modifica',
+    add: 'Aggiungi',
+    close: 'Chiudi',
+
+    // Navigation
+    home: 'Home',
+    statistics: 'Statistiche',
+    settings: 'Impostazioni',
+    premium: 'Premium',
+
+    // Home Page
+    hello: 'Ciao',
+    dailyProgress: 'Progresso Giornaliero',
+    myHabits: 'Le Mie Abitudini',
+    noHabitsYet: 'Nessuna abitudine ancora',
+    addFirstHabit: 'Aggiungi Prima Abitudine',
+    completed: 'completato',
+
+    // Habits
+    habitName: 'Nome Abitudine',
+    description: 'Descrizione',
+    optional: 'Opzionale',
+    selectColor: 'Seleziona Colore',
+    selectIcon: 'Seleziona Icona',
+    preview: 'Anteprima',
+    addHabit: 'Aggiungi Abitudine',
+    editHabit: 'Modifica Abitudine',
+    deleteHabit: 'Elimina Abitudine',
+
+    // Statistics
+    totalStreak: 'Serie Totale',
+    longestStreak: 'Serie Più Lunga',
+    totalCompletions: 'Completamenti Totali',
+    averageSuccess: 'Successo Medio',
+    habitDetails: 'Dettagli Abitudine',
+    currentStreak: 'Serie Attuale',
+    completionRate: 'Tasso di Completamento',
+    days: 'giorni',
+
+    // Settings
+    account: 'Account',
+    preferences: 'Preferenze',
+    dataManagement: 'Gestione Dati',
+    support: 'Supporto',
+    premiumStatus: 'Stato Premium',
+    theme: 'Tema',
+    light: 'Chiaro',
+    dark: 'Scuro',
+    notifications: 'Notifiche',
+    language: 'Lingua',
+    exportData: 'Esporta Dati',
+    importData: 'Importa Dati',
+    helpFaq: 'Aiuto e FAQ',
+    contact: 'Contatto',
+    privacyPolicy: 'Informativa sulla Privacy',
+    dangerZone: 'Zona Pericolosa',
+    resetAllData: 'Reimposta Tutti i Dati',
+    termsOfService: 'Termini di Servizio',
+
+    // App Info
+    appName: 'Habitracker',
+    version: 'Versione',
+    totalHabits: 'Abitudini Totali',
+    accountType: 'Tipo di Account',
+    limit: 'Limite',
+    unlimited: 'Illimitato',
+    habitsLimit: 'abitudini',
+    customizeApp: 'Personalizza la tua app',
+    copyright: '© 2025 Habitracker',
+
+    // Premium
+    upgradeToPremium: 'Passa a Premium',
+    unlimitedHabits: 'Abitudini illimitate',
+    premiumFeatures: 'Funzionalità Premium',
+    monthly: 'Mensile',
+    yearly: 'Annuale',
+
+    // Messages
+    habitAdded: 'Abitudine aggiunta con successo!',
+    habitUpdated: 'Abitudine aggiornata!',
+    habitDeleted: 'Abitudine eliminata',
+    dataExported: 'Dati esportati con successo!',
+    dataImported: 'Dati importati con successo!',
+    premiumActivated: 'Premium attivato!',
+    confirmDelete: 'Sei sicuro di voler eliminare questa abitudine?',
+    confirmReset: 'TUTTI I TUOI DATI saranno eliminati! Questa azione non può essere annullata. Vuoi continuare?',
+    errorLoadingData: 'Errore durante il caricamento dei dati',
+    premiumLimit: 'Puoi aggiungere massimo 3 abitudini nella versione gratuita!',
+    errorAddingHabit: 'Errore durante l\'aggiunta dell\'abitudine',
+    errorUpdatingHabit: 'Errore durante l\'aggiornamento dell\'abitudine',
+    errorDeletingHabit: 'Errore durante l\'eliminazione dell\'abitudine',
+    errorOccurred: 'Si è verificato un errore',
+    errorActivatingPremium: 'Errore durante l\'attivazione premium',
+    darkThemeActive: 'Tema scuro attivo',
+    lightThemeActive: 'Tema chiaro attivo',
+    errorChangingTheme: 'Errore durante il cambio del tema',
+    languageChanged: 'Lingua cambiata',
+    errorChangingLanguage: 'Errore durante il cambio della lingua',
+    allDataReset: 'Tutti i dati reimpostati',
+    errorResettingData: 'Errore durante il ripristino dei dati',
+
+    // Form Validation
+    fieldRequired: 'Si prega di compilare questo campo.',
+    habitNamePlaceholder: 'Es: Leggere libri',
+    habitDescriptionPlaceholder: 'Una breve descrizione di questa abitudine...',
+
+    // Notifications
+    notificationsEnabled: 'Notifiche attivate',
+    notificationsDenied: 'Autorizzazione notifica negata',
+    notificationsDisabled: 'Notifiche disattivate',
+  },
+};
+
+export const getTranslation = (lang: Language, key: string): string => {
+  const keys = key.split('.');
+  let value: any = translations[lang];
+
+  for (const k of keys) {
+    value = value?.[k];
+  }
+
+  return value || key;
+};
