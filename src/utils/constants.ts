@@ -64,6 +64,14 @@ export const HABIT_ICONS = [
   { name: 'Çatal Bıçak', value: 'utensils', isPremium: true },
 ];
 
+// Google Play Console'da oluşturulacak product ID'leri
+// ÖNEMLİ: Bu ID'ler Google Play Console > Uygulamanız > Monetizasyon > Ürünler
+// bölümünde tanımlanmalıdır
+export const GOOGLE_PLAY_PRODUCT_IDS = {
+  monthly: 'premium_monthly_subscription', // Aylık abonelik product ID
+  yearly: 'premium_yearly_subscription',   // Yıllık abonelik product ID
+};
+
 export const PREMIUM_PLANS = [
   {
     id: 'monthly',
@@ -71,6 +79,7 @@ export const PREMIUM_PLANS = [
     price: 29.99,
     currency: '₺',
     interval: 'monthly' as const,
+    productId: GOOGLE_PLAY_PRODUCT_IDS.monthly,
     features: [
       'Sınırsız alışkanlık',
       'Karanlık mod',
@@ -82,6 +91,7 @@ export const PREMIUM_PLANS = [
     price: 199.99,
     currency: '₺',
     interval: 'yearly' as const,
+    productId: GOOGLE_PLAY_PRODUCT_IDS.yearly,
     features: [
       'Sınırsız alışkanlık',
       'Karanlık mod',

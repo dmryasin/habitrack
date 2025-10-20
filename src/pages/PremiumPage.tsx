@@ -1,24 +1,100 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Crown, Check, ArrowLeft, Sparkles, Star, Zap } from 'lucide-react';
+import { Crown, Check, Sparkles, Star, Zap, RefreshCw } from 'lucide-react';
 import { useHabitStore } from '../store/useHabitStore';
 import { Button } from '../components/Button';
 import { PREMIUM_PLANS } from '../utils/constants';
 import { getTranslation } from '../utils/i18n';
+import { BillingService } from '../utils/billing';
+import { toast } from 'react-toastify';
 import clsx from 'clsx';
+import type { PurchasesPackage } from '@revenuecat/purchases-capacitor';
 
 export const PremiumPage: React.FC = () => {
   const navigate = useNavigate();
   const { isPremium, activatePremium, language } = useHabitStore();
   const [selectedPlan, setSelectedPlan] = React.useState(PREMIUM_PLANS[1].id);
+  const [availablePackages, setAvailablePackages] = React.useState<PurchasesPackage[]>([]);
+  const [loading, setLoading] = React.useState(false);
+  const [restoring, setRestoring] = React.useState(false);
   const t = (key: string) => getTranslation(language, key);
 
+  // Satın alınabilir paketleri yükle
+  React.useEffect(() => {
+    const loadPackages = async () => {
+      try {
+        const packages = await BillingService.getAvailablePackages();
+        setAvailablePackages(packages);
+      } catch (error) {
+        console.error('Error loading packages:', error);
+      }
+    };
+
+    loadPackages();
+  }, []);
+
   const handlePurchase = async () => {
+    if (loading) return;
+
+    setLoading(true);
     try {
-      await activatePremium();
-      setTimeout(() => navigate('/'), 1000);
+      // Seçili plana göre paketi bul
+      const selectedPackage = availablePackages.find(pkg => {
+        const planId = PREMIUM_PLANS.find(p => p.id === selectedPlan);
+        return pkg.product.identifier === planId?.productId;
+      });
+
+      if (!selectedPackage) {
+        // Paketler yüklenmediyse veya web'deyse, eski yöntemi kullan (test için)
+        toast.info(t('purchaseNotAvailable') || 'Satın alma sadece mobil cihazlarda kullanılabilir');
+        // Test için ödeme yapmadan aktifleştir (sadece development)
+        if (import.meta.env.DEV) {
+          await activatePremium();
+          setTimeout(() => navigate('/'), 1000);
+        }
+        return;
+      }
+
+      // Gerçek satın alma işlemi
+      const result = await BillingService.purchasePremium(selectedPackage);
+
+      if (result.success) {
+        // Premium durumunu store'a kaydet
+        await activatePremium();
+        toast.success(t('premiumActivated'));
+        setTimeout(() => navigate('/'), 1000);
+      } else if (result.error !== 'Purchase cancelled by user') {
+        toast.error(result.error || t('errorActivatingPremium'));
+      }
     } catch (error) {
-      // Error handled in store
+      console.error('Purchase error:', error);
+      toast.error(t('errorActivatingPremium'));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleRestorePurchases = async () => {
+    if (restoring) return;
+
+    setRestoring(true);
+    try {
+      const result = await BillingService.restorePurchases();
+
+      if (result.success && result.isPremium) {
+        await activatePremium();
+        toast.success(t('premiumRestored') || 'Premium üyeliğiniz geri yüklendi');
+        setTimeout(() => navigate('/'), 1000);
+      } else if (result.success && !result.isPremium) {
+        toast.info(t('noPurchaseFound') || 'Geri yüklenecek satın alma bulunamadı');
+      } else {
+        toast.error(result.error || t('errorRestoringPurchase'));
+      }
+    } catch (error) {
+      console.error('Restore error:', error);
+      toast.error(t('errorRestoringPurchase') || 'Satın alma geri yüklenemedi');
+    } finally {
+      setRestoring(false);
     }
   };
 
@@ -152,14 +228,44 @@ export const PremiumPage: React.FC = () => {
         </div>
 
         {/* Purchase Button */}
-        <div className="sticky bottom-6">
+        <div className="sticky bottom-6 space-y-3">
           <button
             onClick={handlePurchase}
-            className="w-full bg-[#C85A3E] hover:bg-[#B34F35] text-white rounded-2xl py-5 px-6 shadow-2xl transition-all duration-200 hover:shadow-3xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-3"
+            disabled={loading}
+            className="w-full bg-[#C85A3E] hover:bg-[#B34F35] disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-2xl py-5 px-6 shadow-2xl transition-all duration-200 hover:shadow-3xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-3"
           >
-            <Crown size={28} />
-            <span className="text-xl font-bold">{t('switchToPremium')}</span>
+            {loading ? (
+              <>
+                <RefreshCw size={28} className="animate-spin" />
+                <span className="text-xl font-bold">{t('processing') || 'İşleniyor...'}</span>
+              </>
+            ) : (
+              <>
+                <Crown size={28} />
+                <span className="text-xl font-bold">{t('switchToPremium')}</span>
+              </>
+            )}
           </button>
+
+          {/* Restore Purchases Button */}
+          <button
+            onClick={handleRestorePurchases}
+            disabled={restoring}
+            className="w-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 hover:border-primary-500 dark:hover:border-primary-500 text-gray-700 dark:text-gray-300 rounded-2xl py-4 px-6 transition-all duration-200 hover:shadow-lg flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {restoring ? (
+              <>
+                <RefreshCw size={20} className="animate-spin" />
+                <span className="font-semibold">{t('restoring') || 'Geri Yükleniyor...'}</span>
+              </>
+            ) : (
+              <>
+                <RefreshCw size={20} />
+                <span className="font-semibold">{t('restorePurchases') || 'Satın Almaları Geri Yükle'}</span>
+              </>
+            )}
+          </button>
+
           <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">
             {t('cancelAnytimeSecure')}
           </p>

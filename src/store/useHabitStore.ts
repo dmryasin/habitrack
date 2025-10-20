@@ -5,6 +5,7 @@ import { storage } from '../utils/storage';
 import { toast } from 'react-toastify';
 import type { Language } from '../utils/i18n';
 import { getTranslation } from '../utils/i18n';
+import { BillingService } from '../utils/billing';
 
 interface HabitStore {
   habits: Habit[];
@@ -37,13 +38,28 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
 
   loadData: async () => {
     try {
-      const [habits, isPremium, theme, language, notificationsEnabled] = await Promise.all([
+      // BillingService'i başlat
+      await BillingService.initialize();
+
+      const [habits, localIsPremium, theme, language, notificationsEnabled] = await Promise.all([
         storage.getHabits(),
         storage.getIsPremium(),
         storage.getTheme(),
         storage.getLanguage(),
         storage.getNotificationsEnabled(),
       ]);
+
+      // Gerçek premium durumunu BillingService'ten kontrol et
+      const actualIsPremium = await BillingService.checkPremiumStatus();
+
+      // Eğer gerçek durum ile local storage arasında fark varsa, düzelt
+      let isPremium = actualIsPremium;
+      if (actualIsPremium !== localIsPremium) {
+        await storage.saveIsPremium(actualIsPremium);
+        isPremium = actualIsPremium;
+      } else {
+        isPremium = localIsPremium;
+      }
 
       set({ habits, isPremium, theme, language, notificationsEnabled, loading: false });
 
@@ -137,9 +153,13 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
     const { language } = get();
 
     try {
+      // Premium durumunu localStorage'a kaydet
+      // Not: Gerçek doğrulama BillingService tarafından yapılır
       await storage.saveIsPremium(true);
       set({ isPremium: true });
-      toast.success(getTranslation(language, 'premiumActivated'));
+
+      // Toast mesajı PremiumPage'de gösterildiği için burada tekrar göstermeye gerek yok
+      // toast.success(getTranslation(language, 'premiumActivated'));
     } catch (error) {
       console.error('Error activating premium:', error);
       toast.error(getTranslation(language, 'errorActivatingPremium'));

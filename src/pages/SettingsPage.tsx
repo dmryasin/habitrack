@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Crown, Trash2, Bell, Moon, Sun, Globe, Mail, HelpCircle, Shield, ChevronRight, Check } from 'lucide-react';
+import { Crown, Trash2, Bell, Moon, Sun, Globe, Mail, HelpCircle, Shield, ChevronRight, Check, Settings as SettingsIcon } from 'lucide-react';
 import { useHabitStore } from '../store/useHabitStore';
 import { Button } from '../components/Button';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import type { Language } from '../utils/i18n';
 import { getTranslation } from '../utils/i18n';
+import { LocalNotifications } from '@capacitor/local-notifications';
+import { BillingService } from '../utils/billing';
 
 export const SettingsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -49,22 +51,19 @@ export const SettingsPage: React.FC = () => {
     const newValue = !notificationsEnabled;
 
     if (newValue) {
-      // Request notification permission
-      if ('Notification' in window) {
-        if (Notification.permission === 'granted') {
+      try {
+        // Request notification permission using Capacitor API
+        const permissionResult = await LocalNotifications.requestPermissions();
+
+        if (permissionResult.display === 'granted') {
           await setNotificationsEnabled(true);
           toast.success(t('notificationsEnabled'));
-        } else if (Notification.permission === 'default') {
-          const permission = await Notification.requestPermission();
-          if (permission === 'granted') {
-            await setNotificationsEnabled(true);
-            toast.success(t('notificationsEnabled'));
-          } else {
-            toast.error(t('notificationsDenied'));
-          }
         } else {
           toast.error(t('notificationsDenied'));
         }
+      } catch (error) {
+        console.error('Error requesting notification permission:', error);
+        toast.error(t('notificationsDenied'));
       }
     } else {
       await setNotificationsEnabled(false);
@@ -85,6 +84,15 @@ export const SettingsPage: React.FC = () => {
           action: () => !isPremium && navigate('/premium'),
           showChevron: !isPremium,
         },
+        ...(isPremium ? [{
+          icon: SettingsIcon,
+          label: t('manageSubscription') || 'Aboneliği Yönet',
+          value: '',
+          color: 'text-indigo-500',
+          bgColor: 'bg-indigo-50',
+          action: () => BillingService.openManageSubscription(),
+          showChevron: true,
+        }] : []),
       ],
     },
     {
