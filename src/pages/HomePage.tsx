@@ -1,10 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, Crown, TrendingUp, Calendar } from 'lucide-react';
+import { Plus, Crown, Calendar } from 'lucide-react';
 import { useHabitStore } from '../store/useHabitStore';
 import { HabitCard } from '../components/HabitCard';
 import { ProgressBar } from '../components/ProgressBar';
-import { Button } from '../components/Button';
 import { HabitModel } from '../models/Habit';
 import { format } from 'date-fns';
 import { tr, enUS, es, fr, de, it } from 'date-fns/locale';

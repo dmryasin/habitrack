@@ -3,6 +3,8 @@ import type { Habit } from '../types';
 import { HabitModel } from '../models/Habit';
 import * as Icons from 'lucide-react';
 import clsx from 'clsx';
+import { useHabitStore } from '../store/useHabitStore';
+import { getTranslation } from '../utils/i18n';
 
 interface HabitCardProps {
   habit: Habit;
@@ -11,6 +13,8 @@ interface HabitCardProps {
 }
 
 export const HabitCard: React.FC<HabitCardProps> = ({ habit, onToggle, onClick }) => {
+  const { language } = useHabitStore();
+  const t = (key: string) => getTranslation(language, key);
   const stats = HabitModel.getStats(habit);
   const isCompleted = HabitModel.isCompletedToday(habit);
 
@@ -62,7 +66,7 @@ export const HabitCard: React.FC<HabitCardProps> = ({ habit, onToggle, onClick }
         <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">
           <div className="flex items-center space-x-1.5">
             <Icons.Flame size={18} className="text-orange-500" />
-            <span className="font-medium">{stats.currentStreak} gün</span>
+            <span className="font-medium">{stats.currentStreak} {t('days')}</span>
           </div>
           <div className="flex items-center space-x-1.5">
             <Icons.TrendingUp size={18} className="text-blue-500" />

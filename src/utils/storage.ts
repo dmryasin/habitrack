@@ -1,5 +1,6 @@
 import localforage from 'localforage';
 import type { Habit } from '../types';
+import type { Language } from './i18n';
 
 // Configure localforage
 localforage.config({
@@ -66,9 +67,9 @@ export const storage = {
     }
   },
 
-  async getLanguage(): Promise<'tr' | 'en'> {
+  async getLanguage(): Promise<Language> {
     try {
-      const language = await localforage.getItem<'tr' | 'en'>('language');
+      const language = await localforage.getItem<Language>('language');
       return language || 'tr';
     } catch (error) {
       console.error('Error loading language:', error);
@@ -76,7 +77,7 @@ export const storage = {
     }
   },
 
-  async saveLanguage(language: 'tr' | 'en'): Promise<void> {
+  async saveLanguage(language: Language): Promise<void> {
     try {
       await localforage.setItem('language', language);
     } catch (error) {

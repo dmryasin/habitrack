@@ -2,12 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Shield, Lock, Eye, Server, Mail } from 'lucide-react';
 import { useHabitStore } from '../store/useHabitStore';
-import { getTranslation } from '../utils/i18n';
 
 export const PrivacyPolicyPage: React.FC = () => {
   const navigate = useNavigate();
   const { language } = useHabitStore();
-  const t = (key: string) => getTranslation(language, key);
 
   const content = {
     tr: {

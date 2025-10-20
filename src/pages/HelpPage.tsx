@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, HelpCircle, ChevronDown, ChevronUp, BookOpen, Mail, MessageCircle } from 'lucide-react';
+import { ArrowLeft, ChevronDown, ChevronUp, BookOpen, Mail, MessageCircle } from 'lucide-react';
 import { useHabitStore } from '../store/useHabitStore';
-import { getTranslation } from '../utils/i18n';
-
-interface FAQItem {
-  question: string;
-  answer: string;
-  category: string;
-}
 
 export const HelpPage: React.FC = () => {
   const navigate = useNavigate();
   const { language } = useHabitStore();
-  const t = (key: string) => getTranslation(language, key);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const content = {
