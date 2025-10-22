@@ -14,9 +14,10 @@ import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { HelpPage } from './pages/HelpPage';
 import { TermsPage } from './pages/TermsPage';
 import { BillingService } from './utils/billing';
+import { AdMobService } from './utils/admob';
 
 function App() {
-  const { loadData, loading, theme } = useHabitStore();
+  const { loadData, loading, theme, isPremium } = useHabitStore();
 
   useEffect(() => {
     // Uygulama verilerini yükle
@@ -26,7 +27,19 @@ function App() {
     BillingService.initialize().catch(error => {
       console.error('Failed to initialize billing:', error);
     });
+
+    // AdMob SDK'sını başlat
+    AdMobService.initialize().catch(error => {
+      console.error('Failed to initialize AdMob:', error);
+    });
   }, [loadData]);
+
+  // Premium durumu değiştiğinde reklamları güncelle
+  useEffect(() => {
+    AdMobService.updateAdVisibility(isPremium).catch(error => {
+      console.error('Failed to update ad visibility:', error);
+    });
+  }, [isPremium]);
 
   if (loading) {
     return (
