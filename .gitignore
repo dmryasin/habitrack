@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Android keystore and sensitive files
+*.keystore
+*.jks
+key.properties
+KEYSTORE-INFO.txt
+android/app/*.keystore
+android/app/*.jks
+
+# AAB and APK files (optional - comment out if you want to commit them)
+*.aab
+*.apk
