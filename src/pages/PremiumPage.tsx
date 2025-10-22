@@ -38,14 +38,41 @@ export const PremiumPage: React.FC = () => {
 
     setLoading(true);
     try {
+      // Debug: Mevcut paketleri logla
+      console.log('Available packages:', availablePackages);
+      console.log('Selected plan:', selectedPlan);
+
       // Seçili plana göre paketi bul
-      const selectedPackage = availablePackages.find(pkg => {
-        const planId = PREMIUM_PLANS.find(p => p.id === selectedPlan);
-        return pkg.product.identifier === planId?.productId;
+      // RevenueCat package identifier'ları: $rc_monthly, $rc_annual
+      let selectedPackage = availablePackages.find(pkg => {
+        if (selectedPlan === 'monthly') {
+          // Monthly için: identifier $rc_monthly veya MONTHLY package type
+          return pkg.identifier === '$rc_monthly' ||
+                 pkg.packageType === 'MONTHLY' ||
+                 pkg.product.identifier.includes('monthly');
+        } else if (selectedPlan === 'yearly') {
+          // Yearly için: identifier $rc_annual veya ANNUAL package type
+          return pkg.identifier === '$rc_annual' ||
+                 pkg.packageType === 'ANNUAL' ||
+                 pkg.product.identifier.includes('yearly');
+        }
+        return false;
       });
+
+      // Eğer bulunamazsa, productId ile eşleşmeyi dene
+      if (!selectedPackage) {
+        const planId = PREMIUM_PLANS.find(p => p.id === selectedPlan);
+        selectedPackage = availablePackages.find(pkg =>
+          pkg.product.identifier === planId?.productId ||
+          pkg.product.identifier.startsWith(planId?.productId || '')
+        );
+      }
+
+      console.log('Selected package:', selectedPackage);
 
       if (!selectedPackage) {
         // Paketler yüklenmediyse veya web'deyse, eski yöntemi kullan (test için)
+        console.warn('No package found. Available packages:', availablePackages.length);
         toast.info(t('purchaseNotAvailable') || 'Satın alma sadece mobil cihazlarda kullanılabilir');
         // Test için ödeme yapmadan aktifleştir (sadece development)
         if (import.meta.env.DEV) {
