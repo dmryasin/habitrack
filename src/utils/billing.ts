@@ -1,9 +1,7 @@
 // @ts-nocheck
-import * as Purchases from '@revenuecat/purchases-capacitor';
+import { Purchases, LOG_LEVEL } from '@revenuecat/purchases-capacitor';
 import type { CustomerInfo, PurchasesPackage } from '@revenuecat/purchases-capacitor';
 import { Capacitor } from '@capacitor/core';
-
-const { LOG_LEVEL } = Purchases;
 
 // RevenueCat API Keys
 // Android API Key: RevenueCat Dashboard → Project Settings → API Keys
