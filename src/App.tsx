@@ -13,12 +13,19 @@ import { SettingsPage } from './pages/SettingsPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { HelpPage } from './pages/HelpPage';
 import { TermsPage } from './pages/TermsPage';
+import { BillingService } from './utils/billing';
 
 function App() {
   const { loadData, loading, theme } = useHabitStore();
 
   useEffect(() => {
+    // Uygulama verilerini yükle
     loadData();
+
+    // RevenueCat SDK'sını başlat
+    BillingService.initialize().catch(error => {
+      console.error('Failed to initialize billing:', error);
+    });
   }, [loadData]);
 
   if (loading) {

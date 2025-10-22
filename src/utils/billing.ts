@@ -6,14 +6,21 @@ import { Capacitor } from '@capacitor/core';
 const { LOG_LEVEL } = Purchases;
 
 // RevenueCat API Keys
-// ÖNEMLİ: Bu anahtarları Google Play Console ve App Store Connect'ten almanız gerekiyor
+// Android API Key: RevenueCat Dashboard → Project Settings → API Keys
 const REVENUECAT_API_KEY = {
-  android: 'BURAYA_GOOGLE_PLAY_API_KEY_GELECEK', // Google Play public key
-  ios: 'BURAYA_APP_STORE_API_KEY_GELECEK', // App Store public key
+  android: 'goog_WwzKyqPMLYLiUoWqQKJqcBGMHyi', // Google Play public key
+  ios: 'BURAYA_APP_STORE_API_KEY_GELECEK', // App Store public key (iOS için gerekli olduğunda eklenecek)
 };
 
 // Premium entitlement identifier (RevenueCat dashboard'da tanımlanacak)
 const PREMIUM_ENTITLEMENT_ID = 'premium';
+
+// Product IDs - Google Play Console'da oluşturulan subscription ID'leri
+// Not: Bu ID'ler Google Play Console'da oluşturduktan sonra buraya eklenmelidir
+export const PRODUCT_IDS = {
+  monthly: 'habitrack_premium_monthly', // Aylık abonelik
+  yearly: 'habitrack_premium_yearly',   // Yıllık abonelik
+};
 
 export class BillingService {
   private static initialized = false;
