@@ -64,13 +64,12 @@ export const HABIT_ICONS = [
   { name: 'Çatal Bıçak', value: 'utensils', isPremium: true },
 ];
 
-// Google Play Console'da oluşturulacak product ID'leri
-// ÖNEMLİ: Bu ID'ler Google Play Console > Uygulamanız > Monetizasyon > Ürünler
-// bölümünde tanımlanmalıdır
+// Google Play Console'da oluşturulan product ID'leri
+// Bu ID'ler Google Play Console'dan alınmıştır
 // RevenueCat Dashboard'da da aynı ID'ler kullanılacak
 export const GOOGLE_PLAY_PRODUCT_IDS = {
-  monthly: 'habitrack_premium_monthly',  // Aylık abonelik product ID
-  yearly: 'habitrack_premium_yearly',    // Yıllık abonelik product ID
+  monthly: 'premium_monthly_subscription',  // Aylık abonelik product ID
+  yearly: 'premium_yearly_subscription',    // Yıllık abonelik product ID
 };
 
 export const PREMIUM_PLANS = [

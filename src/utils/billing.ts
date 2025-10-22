@@ -16,10 +16,10 @@ const REVENUECAT_API_KEY = {
 const PREMIUM_ENTITLEMENT_ID = 'premium';
 
 // Product IDs - Google Play Console'da oluşturulan subscription ID'leri
-// Not: Bu ID'ler Google Play Console'da oluşturduktan sonra buraya eklenmelidir
+// Bu ID'ler Google Play Console'dan alınmıştır
 export const PRODUCT_IDS = {
-  monthly: 'habitrack_premium_monthly', // Aylık abonelik
-  yearly: 'habitrack_premium_yearly',   // Yıllık abonelik
+  monthly: 'premium_monthly_subscription', // Aylık abonelik
+  yearly: 'premium_yearly_subscription',   // Yıllık abonelik
 };
 
 export class BillingService {
