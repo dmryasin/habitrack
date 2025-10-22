@@ -1,0 +1,13 @@
+v1.0.0 - İlk Sürüm
+
+✨ Özellikler:
+• Alışkanlık oluşturma ve takip sistemi
+• Günlük, haftalık, aylık istatistikler
+• Seri (streak) takibi
+• 12+ renk ve 20+ ikon seçeneği
+• 6 dil desteği (Türkçe, İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca)
+• Karanlık mod (Premium)
+• Bildirim hatırlatıcıları
+• Premium üyelik sistemi
+
+Bu ilk test sürümüdür. Geri bildirimleriniz için teşekkürler!

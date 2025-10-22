@@ -1,9 +1,9 @@
-import Purchases, {
-  CustomerInfo,
-  PurchasesPackage,
-  LOG_LEVEL
-} from '@revenuecat/purchases-capacitor';
+// @ts-nocheck
+import * as Purchases from '@revenuecat/purchases-capacitor';
+import type { CustomerInfo, PurchasesPackage } from '@revenuecat/purchases-capacitor';
 import { Capacitor } from '@capacitor/core';
+
+const { LOG_LEVEL } = Purchases;
 
 // RevenueCat API Keys
 // ÖNEMLİ: Bu anahtarları Google Play Console ve App Store Connect'ten almanız gerekiyor

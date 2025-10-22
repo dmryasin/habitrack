@@ -1,0 +1,161 @@
+═══════════════════════════════════════════════════════════
+⚠️ GOOGLE PLAY CONSOLE UYARISI
+═══════════════════════════════════════════════════════════
+
+UYARI MESAJI:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"Bu App Bundle ile ilişkili kod gösterme dosyası mevcut değil."
+"R8/proguard kullanıyorsanız kod gösterme dosyası yüklemek..."
+
+═══════════════════════════════════════════════════════════
+✅ BU UYARI NORMALDIR - SORUN DEĞİL!
+═══════════════════════════════════════════════════════════
+
+NEDEN BU UYARI GÖRÜNTÜLENİYOR?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Google Play Console, tüm yeni yüklemelerde ProGuard/R8 mapping
+dosyası olup olmadığını kontrol eder.
+
+Bu dosya ne işe yarar?
+• Kod karartma (obfuscation) yapıldığında
+• Crash raporlarını okumayı kolaylaştırır
+• Orijinal kod ile karartılmış kod arasında eşleşme sağlar
+
+═══════════════════════════════════════════════════════════
+🔍 BİZİM DURUMUMUZ
+═══════════════════════════════════════════════════════════
+
+Uygulamamızda:
+❌ ProGuard/R8 code minification KAPALI
+   (build.gradle → minifyEnabled false)
+
+Bu demek oluyor ki:
+✅ Kod karartma yapılmıyor
+✅ Mapping dosyasına gerek yok
+✅ Crash raporları zaten okunabilir
+✅ Bu uyarıyı görmezden geçebilirsiniz
+
+═══════════════════════════════════════════════════════════
+📊 NE YAPMALIYIM?
+═══════════════════════════════════════════════════════════
+
+SEÇENEK 1: GÖRMEZDEN GEÇİN (ÖNERİLEN)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ En kolay yol
+✅ Uygulama çalışmasını etkilemez
+✅ Yayınlamaya devam edebilirsiniz
+⚠️  Sadece bir bilgilendirme uyarısıdır
+
+Yapılacak: Hiçbir şey! "Daha az göster" tıklayın ve devam edin.
+
+SEÇENEK 2: PROGUARD'I AKTİF EDİN (Gelecek için)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Avantajları:
+✅ APK/AAB boyutu küçülür (~30-40%)
+✅ Kod güvenliği artar
+✅ Performans iyileşir
+
+Dezavantajları:
+⚠️  İlk kurulumda test gerektirir
+⚠️  Bazı kütüphaneler sorun çıkarabilir
+⚠️  Debug daha zor olabilir
+
+Yapılacak:
+1. android/app/build.gradle dosyasında:
+   minifyEnabled true
+2. ProGuard rules ekle
+3. Test et
+4. Yeni AAB oluştur
+
+═══════════════════════════════════════════════════════════
+🎯 ÖNERİM
+═══════════════════════════════════════════════════════════
+
+İLK YAYINDA:
+• Bu uyarıyı görmezden geçin
+• "Daha az göster" tıklayın
+• AAB'yi yükleyip devam edin
+• Uygulama normal çalışacaktır
+
+GELECEK SÜRÜMLERDE:
+• v1.1.0 veya v2.0.0'da ProGuard'ı aktif edin
+• Daha küçük APK boyutu için
+• Daha iyi performans için
+
+═══════════════════════════════════════════════════════════
+📋 PROGUARD AKTİF ETMEK İSTERSENİZ
+═══════════════════════════════════════════════════════════
+
+android/app/build.gradle'da:
+
+MEVCUT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+buildTypes {
+    release {
+        minifyEnabled false  ❌
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+}
+
+DEĞİŞTİRİLMİŞ:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+buildTypes {
+    release {
+        minifyEnabled true   ✅
+        shrinkResources true ✅
+        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+}
+
+ProGuard Rules (android/app/proguard-rules.pro):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# Capacitor
+-keep class com.getcapacitor.** { *; }
+-keepclassmembers class * extends com.getcapacitor.Plugin {
+    @com.getcapacitor.annotation.CapacitorPlugin *;
+}
+
+# Cordova
+-keep class org.apache.cordova.** { *; }
+
+# RevenueCat
+-keep class com.revenuecat.** { *; }
+
+# Your app
+-keep class com.dmrya.habitracker.** { *; }
+
+Sonra:
+1. Test edin (çok önemli!)
+2. Yeni AAB build edin
+3. Yükleyin
+
+═══════════════════════════════════════════════════════════
+✅ ÖZET
+═══════════════════════════════════════════════════════════
+
+UYARI:
+"Kod gösterme dosyası mevcut değil"
+
+CEVAP:
+Normal bir bilgilendirme uyarısıdır. Görmezden geçin.
+
+YAPILACAK:
+1. "Daha az göster" tıklayın
+2. AAB yüklemeye devam edin
+3. Uygulamayı yayınlayın
+
+ETKİSİ:
+❌ Yayını engellemez
+❌ Uygulamayı etkilemez
+❌ Kullanıcıları etkilemez
+
+BU SADECE BİR BİLGİLENDİRME!
+
+═══════════════════════════════════════════════════════════
+
+🚀 "DAHA AZ GÖSTER" TIKLAYIN VE DEVAM EDİN!
+
+Uygulama sorunsuz çalışacaktır. Bu uyarı normal ve güvenlidir.
+
+═══════════════════════════════════════════════════════════

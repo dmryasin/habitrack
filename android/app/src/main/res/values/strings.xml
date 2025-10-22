@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Habit Tracker</string>
-    <string name="title_activity_main">Habit Tracker</string>
-    <string name="package_name">com.habittracker.app</string>
-    <string name="custom_url_scheme">com.habittracker.app</string>
+    <string name="app_name">habitracker</string>
+    <string name="title_activity_main">habitracker</string>
+    <string name="package_name">com.dmrya.habitracker</string>
+    <string name="custom_url_scheme">com.dmrya.habitracker</string>
 </resources>

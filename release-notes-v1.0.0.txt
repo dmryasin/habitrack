@@ -1,0 +1,212 @@
+═══════════════════════════════════════════════════════════
+SÜRÜM NOTLARI - v1.0.0 (İlk Sürüm)
+═══════════════════════════════════════════════════════════
+
+📅 Yayın Tarihi: 22 Ekim 2025
+📦 Sürüm: 1.0.0 (Build 1)
+📱 Minimum Android: 5.1 (API 22)
+🎯 Hedef Android: 14 (API 34)
+
+═══════════════════════════════════════════════════════════
+GOOGLE PLAY CONSOLE İÇİN SÜRÜM NOTU (Türkçe)
+═══════════════════════════════════════════════════════════
+
+v1.0.0 - İlk Sürüm
+
+🎉 HabiTracker ile tanışın! Günlük alışkanlıklarınızı takip etmenin en kolay yolu.
+
+✨ Özellikler:
+• Sınırsız alışkanlık oluşturma ve takip
+• Detaylı istatistikler ve ilerleme raporları
+• Seri (streak) takibi ile motivasyon
+• 12+ renk ve 20+ ikon seçeneği
+• Karanlık mod desteği (Premium)
+• Akıllı hatırlatıcı bildirimleri
+• 6 dil desteği (TR, EN, ES, FR, DE, IT)
+• Çevrimdışı çalışma - internet gerektirmez
+• Tüm verileriniz cihazınızda güvende
+
+💎 Premium Üyelik:
+• Sınırsız alışkanlık
+• Tüm temalar ve ikonlar
+• Gelişmiş istatistikler
+• Veri yedekleme
+• Reklamsız deneyim
+
+Bu beta sürümüdür. Geri bildirimleriniz bizim için çok değerli!
+
+═══════════════════════════════════════════════════════════
+İNGİLİZCE SÜRÜM NOTU (English)
+═══════════════════════════════════════════════════════════
+
+v1.0.0 - Initial Release
+
+🎉 Meet HabiTracker! The easiest way to track your daily habits.
+
+✨ Features:
+• Create and track unlimited habits
+• Detailed statistics and progress reports
+• Streak tracking for motivation
+• 12+ colors and 20+ icon options
+• Dark mode support (Premium)
+• Smart reminder notifications
+• 6 language support (TR, EN, ES, FR, DE, IT)
+• Works offline - no internet required
+• All your data stays secure on your device
+
+💎 Premium Membership:
+• Unlimited habits
+• All themes and icons
+• Advanced statistics
+• Data backup
+• Ad-free experience
+
+This is a beta version. Your feedback is very valuable to us!
+
+═══════════════════════════════════════════════════════════
+KISA SÜRÜM NOTU (Play Console için kısa versiyon)
+═══════════════════════════════════════════════════════════
+
+TÜRKÇE (Kısa):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+v1.0.0 - İlk sürüm yayında!
+
+• Alışkanlık takip sistemi
+• Detaylı istatistikler
+• Seri takibi
+• 12+ renk, 20+ ikon
+• 6 dil desteği
+• Çevrimdışı çalışır
+
+Beta sürümüdür. Geri bildirimlerinizi bekliyoruz!
+
+İNGİLİZCE (Kısa):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+v1.0.0 - Initial release!
+
+• Habit tracking system
+• Detailed statistics
+• Streak tracking
+• 12+ colors, 20+ icons
+• 6 language support
+• Works offline
+
+Beta version. We welcome your feedback!
+
+═══════════════════════════════════════════════════════════
+ÇOK KISA SÜRÜM NOTU (Twitter/Social Media için)
+═══════════════════════════════════════════════════════════
+
+HabiTracker v1.0.0 yayında! 🎉
+✨ Alışkanlık takibi
+📊 İstatistikler
+🔥 Seri takibi
+🌍 6 dil
+📱 Şimdi indirin!
+
+═══════════════════════════════════════════════════════════
+TEKNİK DETAYLAR (Changelog)
+═══════════════════════════════════════════════════════════
+
+[NEW] İlk Sürüm Özellikleri:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Alışkanlık Yönetimi
+   • Sınırsız alışkanlık oluşturma
+   • Özelleştirilebilir renkler (12+)
+   • Çeşitli ikonlar (20+)
+   • Açıklama ve notlar ekleme
+
+✅ İstatistik ve Analiz
+   • Günlük tamamlanma yüzdesi
+   • Haftalık ilerleme grafikleri
+   • Aylık performans raporları
+   • Alışkanlık bazında detaylı analiz
+
+✅ Seri Takip Sistemi
+   • Günlük seri sayacı
+   • En uzun seri kaydı
+   • Motivasyon göstergeleri
+
+✅ Bildirimler
+   • Özelleştirilebilir hatırlatıcılar
+   • Günlük bildirim zamanları
+   • Alışkanlık bazında ayarlar
+
+✅ Çoklu Dil Desteği
+   • Türkçe
+   • İngilizce
+   • İspanyolca
+   • Fransızca
+   • Almanca
+   • İtalyanca
+
+✅ Premium Özellikler
+   • Sınırsız alışkanlık
+   • Karanlık mod
+   • Tüm temalar ve ikonlar
+   • Gelişmiş istatistikler
+   • Veri yedekleme ve geri yükleme
+   • Reklamsız deneyim
+
+✅ Güvenlik ve Gizlilik
+   • Tüm veriler cihazda yerel
+   • Şifreli veri saklama
+   • Sunucuya veri gönderilmez
+   • KVKK ve GDPR uyumlu
+
+✅ Performans
+   • Çevrimdışı çalışma
+   • Hızlı ve optimize edilmiş
+   • Düşük pil tüketimi
+   • Minimal depolama alanı
+
+═══════════════════════════════════════════════════════════
+BİLİNEN SORUNLAR (Known Issues)
+═══════════════════════════════════════════════════════════
+
+• Bu beta sürümüdür, bazı özellikler geliştirilmeye devam edecektir
+• Premium satın alma işlemleri test aşamasındadır
+• Bildirimler bazı cihazlarda gecikebilir (Android pil tasarrufu nedeniyle)
+
+═══════════════════════════════════════════════════════════
+GELECEK GÜNCELLEMELER (Roadmap)
+═══════════════════════════════════════════════════════════
+
+v1.1.0 (Planlanan):
+• Widget desteği
+• Haftalık hedefler
+• Başarı rozetleri
+• Sosyal paylaşım özellikleri
+
+v1.2.0 (Planlanan):
+• Bulut senkronizasyonu
+• Çoklu cihaz desteği
+• Alışkanlık şablonları
+• Gelişmiş raporlama
+
+═══════════════════════════════════════════════════════════
+DESTEK VE GERİ BİLDİRİM
+═══════════════════════════════════════════════════════════
+
+📧 E-posta: support@habitracker.com
+🌐 Web: (yakında)
+📱 Uygulama İçi: Ayarlar → Yardım & Geri Bildirim
+
+Geri bildirimleriniz uygulamayı geliştirmemize yardımcı oluyor!
+
+═══════════════════════════════════════════════════════════
+TEŞEKKÜRLER
+═══════════════════════════════════════════════════════════
+
+HabiTracker'ı seçtiğiniz için teşekkür ederiz! 🙏
+
+Uygulamayı beğendiyseniz:
+⭐ 5 yıldız verin
+💬 Yorum bırakın
+📤 Arkadaşlarınızla paylaşın
+
+═══════════════════════════════════════════════════════════
+
+© 2025 HabiTracker. Tüm hakları saklıdır.
+Paket Adı: com.dmrya.habitracker
+Sürüm: 1.0.0 (Build 1)

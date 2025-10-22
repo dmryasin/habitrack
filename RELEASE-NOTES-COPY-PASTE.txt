@@ -1,0 +1,61 @@
+═══════════════════════════════════════════════════════════
+🚀 GOOGLE PLAY CONSOLE'A YAPIŞTIR
+═══════════════════════════════════════════════════════════
+
+TÜRKÇE SÜRÜM NOTU (Kopyala-Yapıştır):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+v1.0.0 - İlk Sürüm
+
+🎉 HabiTracker ile tanışın! Günlük alışkanlıklarınızı takip etmenin en kolay yolu.
+
+✨ Özellikler:
+• Sınırsız alışkanlık oluşturma ve takip
+• Detaylı istatistikler ve ilerleme raporları
+• Seri (streak) takibi ile motivasyon
+• 12+ renk ve 20+ ikon seçeneği
+• Karanlık mod desteği (Premium)
+• Akıllı hatırlatıcı bildirimleri
+• 6 dil desteği (TR, EN, ES, FR, DE, IT)
+• Çevrimdışı çalışma - internet gerektirmez
+• Tüm verileriniz cihazınızda güvende
+
+💎 Premium Üyelik:
+• Sınırsız alışkanlık
+• Tüm temalar ve ikonlar
+• Gelişmiş istatistikler
+• Veri yedekleme
+• Reklamsız deneyim
+
+Bu beta sürümüdür. Geri bildirimleriniz bizim için çok değerli!
+
+═══════════════════════════════════════════════════════════
+
+İNGİLİZCE SÜRÜM NOTU (Kopyala-Yapıştır):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+v1.0.0 - Initial Release
+
+🎉 Meet HabiTracker! The easiest way to track your daily habits.
+
+✨ Features:
+• Create and track unlimited habits
+• Detailed statistics and progress reports
+• Streak tracking for motivation
+• 12+ colors and 20+ icon options
+• Dark mode support (Premium)
+• Smart reminder notifications
+• 6 language support (TR, EN, ES, FR, DE, IT)
+• Works offline - no internet required
+• All your data stays secure on your device
+
+💎 Premium Membership:
+• Unlimited habits
+• All themes and icons
+• Advanced statistics
+• Data backup
+• Ad-free experience
+
+This is a beta version. Your feedback is very valuable to us!
+
+═══════════════════════════════════════════════════════════

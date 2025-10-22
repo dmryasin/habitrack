@@ -1,0 +1,115 @@
+HabiTracker - Alışkanlık Yönetimi ve Hedef Takibi
+
+HabiTracker, günlük alışkanlıklarınızı sistematik bir şekilde takip etmenizi, ilerlemenizi ölçümlemenizi ve hedeflerinize ulaşmanızı sağlayan profesyonel bir mobil uygulamadır. Sade arayüzü ve güçlü analitik özellikleriyle kişisel gelişim yolculuğunuzda ideal bir araçtır.
+
+TEMEL ÖZELLİKLER
+
+ALIŞKANLİK YÖNETİMİ
+• Kullanıcı dostu arayüz ile hızlı alışkanlık oluşturma
+• Tek dokunuşla günlük tamamlama
+• Özelleştirilebilir renk ve ikon seçenekleri
+• Detaylı açıklama ve not ekleme
+
+İSTATİSTİK VE ANALİZ
+• Kapsamlı performans raporları
+• Tamamlanma oranı hesaplamaları
+• Günlük, haftalık ve aylık ilerleme grafikleri
+• Alışkanlık bazında detaylı analiz
+
+SERİ TAKİP SİSTEMİ
+• Kesintisiz devam edilen gün sayısı takibi
+• Motivasyon artırıcı görsel göstergeler
+• En uzun seri kaydı
+
+KİŞİSELLEŞTİRME
+• 12+ renk paleti ve 20+ profesyonel ikon
+• Karanlık mod desteği (Premium)
+
+HATİRLATMA SİSTEMİ
+• Özelleştirilebilir bildirim zamanları
+• Alışkanlık bazında hatırlatıcılar
+
+PREMİUM ÜYELİK
+
+Ücretsiz sürümde 3 alışkanlık ile başlayın. Premium üyelik avantajları:
+
+• Sınırsız alışkanlık oluşturma
+• Tüm renk ve ikon paketlerine erişim
+• Karanlık mod özelliği
+• Gelişmiş analitik raporlar
+• Veri yedekleme ve geri yükleme
+• Reklamsız kullanım
+• Öncelikli müşteri desteği
+
+AVANTAJLAR
+
+SADE VE ETKİLİ TASARIM
+Gereksiz karmaşıklıktan arındırılmış, kullanıcı deneyimi odaklı arayüz.
+
+GİZLİLİK VE GÜVENLİK
+Tüm verileriniz cihazınızda yerel olarak şifreli bir şekilde saklanır. Hiçbir kişisel bilgi üçüncü taraf sunuculara aktarılmaz.
+
+ÇEVRİMDIŞI ÇALIŞMA
+İnternet bağlantısına ihtiyaç duymadan tam işlevsellik.
+
+ÇOKLU DİL DESTEĞİ
+Türkçe, İngilizce, İspanyolca, Fransızca, Almanca ve İtalyanca dillerinde kullanılabilir.
+
+BİLİMSEL TEMEL
+Davranış psikolojisi ve alışkanlık oluşturma literatüründeki kanıtlanmış yöntemler uygulanmıştır.
+
+KULLANIM KILAVUZU
+
+1. ALIŞKANLİK OLUŞTURMA
+Ana ekranda artı (+) simgesine dokunun. Alışkanlığınıza bir isim verin, renk ve ikon seçin.
+
+2. GÜNLÜK TAKİP
+Her gün alışkanlığınızı tamamladığınızda, kartın üzerindeki onay işaretine dokunun.
+
+3. İLERLEME ANALİZİ
+İstatistikler sekmesinden detaylı performans raporlarınızı inceleyin.
+
+4. HEDEF ODAKLI YAKLAŞIM
+Düzenli takip ve süreklilik ile alışkanlıklarınızı kalıcı davranış haline getirin.
+
+UYGULAMA ALANLARI
+
+SAĞLIK VE SPOR: Günlük egzersiz, su tüketimi, beslenme düzeni, uyku saati
+
+EĞİTİM VE GELİŞİM: Kitap okuma, dil öğrenme, online eğitim, meditasyon
+
+YARATICI FAALİYETLER: Günlük yazma, çizim, müzik pratiği, sanatsal projeler
+
+İŞ VE VERİMLİLİK: Erken kalkma, günlük planlama, e-posta yönetimi, finansal takip
+
+VERİ GÜVENLİĞİ
+
+• Tüm veriler cihazda yerel olarak saklanır
+• Kişisel bilgi toplama yapılmaz
+• Sunucu tarafında veri depolama bulunmaz
+• KVKK ve GDPR uyumlu
+• Şifreli veri saklama
+
+TEKNİK ÖZELLİKLER
+
+• Modern ve responsive arayüz
+• Optimize edilmiş performans
+• Düşük pil tüketimi
+• Minimal depolama alanı
+• Düzenli güvenlik güncellemeleri
+• Otomatik veri yedekleme (Premium)
+
+DESTEK
+
+Teknik destek ve geri bildirimler için:
+E-posta: support@habitracker.com
+
+Kullanıcı memnuniyeti önceliğimizdir. Geri bildirimleriniz değerlendirilir ve geliştirme sürecine dahil edilir.
+
+Uygulamayı beğendiyseniz, lütfen puan vererek ve yorum bırakarak destek olun.
+
+Şimdi indirin ve alışkanlıklarınızı profesyonel bir şekilde yönetmeye başlayın.
+
+Anahtar Kelimeler: Alışkanlık Takibi, Hedef Yönetimi, Kişisel Gelişim, Verimlilik, Motivasyon, Habit Tracker
+
+Copyright 2025 HabiTracker. Tüm hakları saklıdır.
