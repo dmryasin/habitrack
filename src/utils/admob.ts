@@ -76,7 +76,7 @@ export class AdMobService {
         adId: AD_UNIT_IDS.banner,
         adSize: BannerAdSize.ADAPTIVE_BANNER,
         position: BannerAdPosition.BOTTOM_CENTER,
-        margin: 0,
+        margin: 70, // Alt navigasyon için boşluk (bottom navigation için)
         isTesting: true, // Production'da false yapın
       };
 
