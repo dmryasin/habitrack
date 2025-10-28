@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import type { Language } from '../utils/i18n';
 import { getTranslation } from '../utils/i18n';
 import { BillingService } from '../utils/billing';
+import { NotificationService } from '../services/notificationService';
 
 interface HabitStore {
   habits: Habit[];
@@ -67,6 +68,12 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
       }
+
+      // Initialize notification service and schedule notifications if enabled
+      if (notificationsEnabled) {
+        await NotificationService.initialize();
+        await NotificationService.scheduleAllHabits(habits, language);
+      }
     } catch (error) {
       console.error('Error loading data:', error);
       const { language } = get();
@@ -76,7 +83,7 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
   },
 
   addHabit: async (habitData) => {
-    const { habits, isPremium, language } = get();
+    const { habits, isPremium, language, notificationsEnabled } = get();
 
     // Check premium limit
     if (!isPremium && habits.length >= 3) {
@@ -91,6 +98,11 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
       await storage.saveHabits(updatedHabits);
       set({ habits: updatedHabits });
       toast.success(getTranslation(language, 'habitAdded'));
+
+      // Reschedule notifications with new habit
+      if (notificationsEnabled) {
+        await NotificationService.scheduleAllHabits(updatedHabits, language);
+      }
     } catch (error) {
       console.error('Error adding habit:', error);
       toast.error(getTranslation(language, 'errorAddingHabit'));
@@ -99,7 +111,7 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
   },
 
   updateHabit: async (id, updates) => {
-    const { habits, language } = get();
+    const { habits, language, notificationsEnabled } = get();
 
     try {
       const updatedHabits = habits.map((habit) =>
@@ -109,6 +121,11 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
       await storage.saveHabits(updatedHabits);
       set({ habits: updatedHabits });
       toast.success(getTranslation(language, 'habitUpdated'));
+
+      // Reschedule notifications after update
+      if (notificationsEnabled) {
+        await NotificationService.scheduleAllHabits(updatedHabits, language);
+      }
     } catch (error) {
       console.error('Error updating habit:', error);
       toast.error(getTranslation(language, 'errorUpdatingHabit'));
@@ -117,7 +134,7 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
   },
 
   deleteHabit: async (id) => {
-    const { habits, language } = get();
+    const { habits, language, notificationsEnabled } = get();
 
     try {
       const updatedHabits = habits.filter((h) => h.id !== id);
@@ -125,6 +142,11 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
       await storage.saveHabits(updatedHabits);
       set({ habits: updatedHabits });
       toast.success(getTranslation(language, 'habitDeleted'));
+
+      // Cancel notifications for deleted habit and reschedule others
+      if (notificationsEnabled) {
+        await NotificationService.cancelHabitNotifications(id);
+      }
     } catch (error) {
       console.error('Error deleting habit:', error);
       toast.error(getTranslation(language, 'errorDeletingHabit'));
@@ -133,7 +155,7 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
   },
 
   toggleHabitCompletion: async (id) => {
-    const { habits, language } = get();
+    const { habits, language, notificationsEnabled } = get();
 
     try {
       const updatedHabits = habits.map((habit) =>
@@ -142,6 +164,14 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
 
       await storage.saveHabits(updatedHabits);
       set({ habits: updatedHabits });
+
+      // Handle notification scheduling when habit is toggled
+      if (notificationsEnabled) {
+        const toggledHabit = updatedHabits.find(h => h.id === id);
+        if (toggledHabit) {
+          await NotificationService.handleHabitToggle(toggledHabit, updatedHabits, language);
+        }
+      }
     } catch (error) {
       console.error('Error toggling habit:', error);
       toast.error(getTranslation(language, 'errorOccurred'));
@@ -202,9 +232,20 @@ export const useHabitStore = create<HabitStore>((set, get) => ({
   },
 
   setNotificationsEnabled: async (enabled: boolean) => {
+    const { habits, language } = get();
+
     try {
       await storage.saveNotificationsEnabled(enabled);
       set({ notificationsEnabled: enabled });
+
+      if (enabled) {
+        // Initialize and schedule notifications when enabled
+        await NotificationService.initialize();
+        await NotificationService.scheduleAllHabits(habits, language);
+      } else {
+        // Cancel all notifications when disabled
+        await NotificationService.cancelAllScheduledNotifications();
+      }
     } catch (error) {
       console.error('Error changing notifications:', error);
     }

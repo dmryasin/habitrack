@@ -139,6 +139,10 @@ export const translations = {
     notificationsEnabled: 'Bildirimler açıldı',
     notificationsDenied: 'Bildirim izni reddedildi',
     notificationsDisabled: 'Bildirimler kapatıldı',
+    notificationReminderTitle: 'Alışkanlık Hatırlatması',
+    notificationFinalTitle: 'Son Hatırlatma!',
+    notificationReminderBody: 'alışkanlığını tamamlamayı unutma!',
+    notificationFinalBody: 'Gün bitmek üzere! hala tamamlanmadı.',
   },
   en: {
     // Common
@@ -278,6 +282,10 @@ export const translations = {
     notificationsEnabled: 'Notifications enabled',
     notificationsDenied: 'Notification permission denied',
     notificationsDisabled: 'Notifications disabled',
+    notificationReminderTitle: 'Habit Reminder',
+    notificationFinalTitle: 'Final Reminder!',
+    notificationReminderBody: 'Don\'t forget to complete your habit!',
+    notificationFinalBody: 'Day is almost over! Not completed yet.',
   },
   es: {
     // Common
@@ -417,6 +425,10 @@ export const translations = {
     notificationsEnabled: 'Notificaciones activadas',
     notificationsDenied: 'Permiso de notificación denegado',
     notificationsDisabled: 'Notificaciones desactivadas',
+    notificationReminderTitle: 'Recordatorio de Hábito',
+    notificationFinalTitle: '¡Recordatorio Final!',
+    notificationReminderBody: '¡No olvides completar tu hábito!',
+    notificationFinalBody: '¡El día casi termina! Aún no completado.',
   },
   fr: {
     // Common
@@ -556,6 +568,10 @@ export const translations = {
     notificationsEnabled: 'Notifications activées',
     notificationsDenied: 'Autorisation de notification refusée',
     notificationsDisabled: 'Notifications désactivées',
+    notificationReminderTitle: 'Rappel d\'Habitude',
+    notificationFinalTitle: 'Rappel Final!',
+    notificationReminderBody: 'N\'oubliez pas de compléter votre habitude!',
+    notificationFinalBody: 'La journée est presque terminée! Pas encore complété.',
   },
   de: {
     // Common
@@ -695,6 +711,10 @@ export const translations = {
     notificationsEnabled: 'Benachrichtigungen aktiviert',
     notificationsDenied: 'Benachrichtigungserlaubnis verweigert',
     notificationsDisabled: 'Benachrichtigungen deaktiviert',
+    notificationReminderTitle: 'Gewohnheitserinnerung',
+    notificationFinalTitle: 'Letzte Erinnerung!',
+    notificationReminderBody: 'Vergessen Sie nicht, Ihre Gewohnheit zu vervollständigen!',
+    notificationFinalBody: 'Der Tag ist fast vorbei! Noch nicht abgeschlossen.',
   },
   it: {
     // Common
@@ -834,6 +854,10 @@ export const translations = {
     notificationsEnabled: 'Notifiche attivate',
     notificationsDenied: 'Autorizzazione notifica negata',
     notificationsDisabled: 'Notifiche disattivate',
+    notificationReminderTitle: 'Promemoria Abitudine',
+    notificationFinalTitle: 'Promemoria Finale!',
+    notificationReminderBody: 'Non dimenticare di completare la tua abitudine!',
+    notificationFinalBody: 'La giornata sta per finire! Non ancora completato.',
   },
 };
 
